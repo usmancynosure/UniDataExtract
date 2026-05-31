@@ -196,28 +196,44 @@ PAGE TEXT:
 class GeminiExtractor:
     method = "gemini"
 
+    # If the primary model is rate-limited (429), try a lighter model that has
+    # its own quota before giving up and dropping to the heuristic extractor.
+    FALLBACK_MODELS = ("gemini-2.5-flash-lite",)
+
     def __init__(self, settings, api_key: str, model: str | None = None):
         from google import genai  # imported lazily so the heuristic path needs no SDK
 
         self.settings = settings
         self.client = genai.Client(api_key=api_key)
         self.model = model or os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+        self.models: list[str] = []
+        for m in (self.model, *self.FALLBACK_MODELS):
+            if m not in self.models:
+                self.models.append(m)
 
     def extract(self, sources: dict) -> dict | None:
         document = _build_document(sources, self.settings)
         if not document.strip():
             return None
-        try:
-            resp = self.client.models.generate_content(
-                model=self.model,
-                contents=PROMPT + document,
-                config={"response_mime_type": "application/json", "temperature": 0.0},
-            )
-            raw = json.loads(_strip_code_fence(resp.text))
-        except Exception as exc:  # network, quota, or malformed JSON
-            log.warning("Gemini extraction failed (%s); falling back to heuristics", exc)
-            return None
-        return assemble_core(raw)
+        for i, model in enumerate(self.models):
+            try:
+                resp = self.client.models.generate_content(
+                    model=model,
+                    contents=PROMPT + document,
+                    config={"response_mime_type": "application/json", "temperature": 0.0},
+                )
+                raw = json.loads(_strip_code_fence(resp.text))
+                if model != self.model:
+                    log.info("used fallback model %s (primary was unavailable)", model)
+                return assemble_core(raw)
+            except Exception as exc:  # network, quota, or malformed JSON
+                quota = "429" in str(exc) or "RESOURCE_EXHAUSTED" in str(exc)
+                if quota and i < len(self.models) - 1:
+                    log.warning("model %s is quota-limited; trying %s", model, self.models[i + 1])
+                    continue
+                log.warning("Gemini extraction failed (%s); falling back to heuristics", exc)
+                return None
+        return None
 
 
 def _strip_code_fence(text: str | None) -> str:
