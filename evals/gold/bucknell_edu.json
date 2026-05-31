@@ -1,0 +1,9 @@
+{
+  "domain": "bucknell.edu",
+  "university_name": "Bucknell University",
+  "state": "PA",
+  "phone": "570-577-3000",
+  "has_tuition": true,
+  "expected_costs": [72600],
+  "deadline_types": ["Early Decision", "Regular Decision", "Transfer Admission"]
+}

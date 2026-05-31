@@ -5,18 +5,179 @@
   "duplicates": [],
   "field_sources": {
     "contact.phone": [
-      "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
-      "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx",
-      "https://www.salisbury.edu/admissions/international-students/tuition-fees.aspx"
+      "https://www.salisbury.edu/admissions/first-year-students/"
     ],
     "contact.email": [
-      "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
-      "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx"
+      "https://www.salisbury.edu/admissions/first-year-students/"
     ]
   },
   "confidence": {
     "overall": "high",
-    "tuition_grounded": "18/18",
+    "tuition_grounded": "36/36",
     "method": "gemini"
-  }
+  },
+  "citations": [
+    {
+      "field": "tuition: Tuition and Mandatory Fees (Maryland Residents)",
+      "value": 11466,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$11,466"
+    },
+    {
+      "field": "tuition: Tuition and Mandatory Fees (Out-of-State Residents)",
+      "value": 23590,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$23,590"
+    },
+    {
+      "field": "tuition: Housing* (Maryland Residents)",
+      "value": 8150,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$8,150"
+    },
+    {
+      "field": "tuition: Housing* (Out-of-State Residents)",
+      "value": 8150,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$8,150"
+    },
+    {
+      "field": "tuition: Food** (Maryland Residents)",
+      "value": 6368,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$6,368"
+    },
+    {
+      "field": "tuition: Food** (Out-of-State Residents)",
+      "value": 6368,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$6,368"
+    },
+    {
+      "field": "tuition: Direct Costs (Maryland Residents)",
+      "value": 25984,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$25,984"
+    },
+    {
+      "field": "tuition: Direct Costs (Out-of-State Residents)",
+      "value": 38108,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$38,108"
+    },
+    {
+      "field": "tuition: Books, Supplies, Course Materials & Equipment (Maryland Residents)",
+      "value": 1300,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$1,300"
+    },
+    {
+      "field": "tuition: Books, Supplies, Course Materials & Equipment (Out-of-State Residents)",
+      "value": 1300,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$1,300"
+    },
+    {
+      "field": "tuition: Personal/Trans/Misc. (Maryland Residents)",
+      "value": 3900,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$3,900"
+    },
+    {
+      "field": "tuition: Personal/Trans/Misc. (Out-of-State Residents)",
+      "value": 3900,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$3,900"
+    },
+    {
+      "field": "tuition: Loan Fee Allowance (Maryland Residents)",
+      "value": 312,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$312"
+    },
+    {
+      "field": "tuition: Loan Fee Allowance (Out-of-State Residents)",
+      "value": 312,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$312"
+    },
+    {
+      "field": "tuition: Indirect Costs (Maryland Residents)",
+      "value": 5512,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$5,512"
+    },
+    {
+      "field": "tuition: Indirect Costs (Out-of-State Residents)",
+      "value": 5512,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$5,512"
+    },
+    {
+      "field": "tuition: Total Cost of Attendance (Maryland Residents)",
+      "value": 31496,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$31,496"
+    },
+    {
+      "field": "tuition: Total Cost of Attendance (Out-of-State Residents)",
+      "value": 43620,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$43,620"
+    },
+    {
+      "field": "tuition: Tuition (Maryland Residents - Graduate Per Credit Hour)",
+      "value": 453,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$453"
+    },
+    {
+      "field": "tuition: Tuition (Non-Residents - Graduate Per Credit Hour)",
+      "value": 837,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$837"
+    },
+    {
+      "field": "tuition: Tuition (Non-Residents Regional Hagerstown - Graduate Per Credit Hour)",
+      "value": 549,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$549"
+    },
+    {
+      "field": "tuition: Mandatory Fees (Graduate Per Credit Hour)",
+      "value": 129,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$129"
+    },
+    {
+      "field": "tuition: Combined Tuition and Fees (Maryland Residents - Graduate Per Credit Hour)",
+      "value": 582,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$582"
+    },
+    {
+      "field": "tuition: Combined Tuition and Fees (Non-Residents - Graduate Per Credit Hour)",
+      "value": 966,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$966"
+    },
+    {
+      "field": "tuition: Combined Tuition and Fees (Non-Residents Regional Hagerstown - Graduate Per Credit Hour)",
+      "value": 678,
+      "source": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+      "snippet": "$678"
+    },
+    {
+      "field": "contact.phone",
+      "value": "410-543-6161",
+      "source": "https://www.salisbury.edu/admissions/first-year-students/",
+      "snippet": "410-543-6161"
+    },
+    {
+      "field": "contact.email",
+      "value": "admissions@salisbury.edu",
+      "source": "https://www.salisbury.edu/admissions/first-year-students/",
+      "snippet": "admissions@salisbury.edu"
+    }
+  ]
 }

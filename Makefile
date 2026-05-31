@@ -27,6 +27,9 @@ lint:                   ## Lint with ruff
 typecheck:              ## Static type-check with mypy
 	$(VENV)/bin/mypy
 
+eval:                   ## Score pipeline output against the gold set (offline)
+	$(PY) evals/run_eval.py
+
 check: lint typecheck test  ## Run lint + type-check + tests
 
 format:                 ## Auto-format with ruff

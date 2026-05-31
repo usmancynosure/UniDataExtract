@@ -71,6 +71,22 @@ def to_html(data: UniversityData, domain: str, quality=None) -> str:
             bits.append(f'<div class="kv"><span>{escape(fieldname)}</span><span>{len(urls)} source(s)</span></div>')
         quality_html = f'<div class="card"><h2>Data quality &amp; confidence</h2>{"".join(bits)}</div>'
 
+        # Evidence spans — the exact source line behind each extracted value.
+        cites = getattr(quality, "citations", [])
+        if cites:
+            crows = "".join(
+                f"<tr><td>{escape(str(c['field']))}</td>"
+                f'<td class="num">{escape(str(c["value"]))}</td>'
+                f'<td><span class="muted">“{escape(c["snippet"])}”</span><br>'
+                f'<a href="{escape(c["source"])}">{escape(c["source"])}</a></td></tr>'
+                for c in cites[:15]
+            )
+            quality_html += (
+                '<div class="card"><h2>Evidence &amp; citations</h2>'
+                "<table><thead><tr><th>Field</th><th>Value</th><th>Source line</th></tr></thead>"
+                f"<tbody>{crows}</tbody></table></div>"
+            )
+
     contact_html = ""
     if contact or place:
         contact_html = f"""

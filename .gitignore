@@ -11,3 +11,7 @@ dist/
 
 # Keep the optimized demo.gif/.mp4, not the heavy source recording
 docs/*.mov
+
+# Local-only docs (not part of the published project)
+docs/interview_prep.html
+docs/UniCompanion_Interview_Prep.pdf

@@ -48,6 +48,9 @@ against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
   on the fetched pages**. Tuition-page selection prefers pages that really list dollar figures.
 - **Shareable reports** — generate a self-contained **HTML / Markdown** report per university
   (`--report html`) with costs grouped by category.
+- **Measured & cited** — a gold-set **evaluation harness** reports field-level
+  precision/recall/coverage and a fabrication rate; every extracted value carries an
+  **evidence span** (the exact source line + URL it came from).
 - **Full provenance** — every page used is recorded with URL, type, depth, HTTP status,
   SHA-1, word count, and relevance score.
 
@@ -123,14 +126,21 @@ already-cleaned text and returns JSON. It never decides what to crawl, fetches n
 forbidden by both prompt and schema from inventing values. With no key, the heuristic extractor
 takes over and the pipeline still produces valid output.
 
-## ✅ Quality
+## ✅ Quality & evaluation
 
 ```bash
 make check    # ruff + mypy + pytest (the full gate)
-make test     # offline unit tests (scoring, normalization, grounding, report)
+make eval     # field-level accuracy vs the hand-verified gold set (offline)
 ```
 
-Fully type-checked (`mypy`), `ruff`-clean, and CI runs all three on Python 3.10–3.12.
+Fully type-checked (`mypy`), `ruff`-clean, CI on Python 3.10–3.12. The eval scores pipeline
+output against [`evals/gold/`](evals/gold) and reports **coverage / precision / recall /
+fabrication**. On the reference schools: **100% precision, 0% fabrication** (grounding never
+lets a wrong value through), with recall depending on the model — the harness actually surfaces
+the lighter quota-fallback model trading some deadline recall, which is the point of having it.
+
+Design rationale and the alternatives considered (agentic crawling, RAG, Scrapy, fine-tuning)
+are documented as [Architecture Decision Records](docs/ARCHITECTURE_DECISIONS.md).
 
 ## 📁 Project structure
 
@@ -152,7 +162,9 @@ UniDataExtract/
 │   ├── schema.py            #   provided Pydantic output models
 │   └── pipeline.py          #   extract → transform → load
 ├── tests/                   # offline unit tests
-├── samples/                 # example outputs for the 3 reference schools
+├── evals/                   # gold set + field-level accuracy harness
+├── docs/ARCHITECTURE_DECISIONS.md  # ADRs: alternatives considered & why rejected
+├── samples/                 # example outputs (+ quality.json with citations, HTML reports)
 ├── pyproject.toml           # packaging + tooling (installs the `unidata` command)
 ├── Makefile                 # install / test / lint / run / ui
 ├── requirements*.txt        # core · render · ui dependency sets

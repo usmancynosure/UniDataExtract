@@ -100,43 +100,43 @@
     {
       "url": "https://www.bucknell.edu/",
       "page_title": "Bucknell University | Liberal Arts, Engineering, & Management Colleges",
-      "scraped_at": "2026-05-31T13:26:47.476842+00:00",
+      "scraped_at": "2026-05-31T17:51:37.642286+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
       "page_title": "Admissions Dates & Deadlines",
-      "scraped_at": "2026-05-31T13:26:47.711494+00:00",
+      "scraped_at": "2026-05-31T17:51:38.021209+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/transfer-credit-information",
       "page_title": "Transfer Student Credit Information | Bucknell University",
-      "scraped_at": "2026-05-31T13:26:48.698294+00:00",
+      "scraped_at": "2026-05-31T17:51:39.197482+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants",
       "page_title": "Transfer to Bucknell University | Transfer Student Information",
-      "scraped_at": "2026-05-31T13:26:48.202392+00:00",
+      "scraped_at": "2026-05-31T17:51:38.959487+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
       "page_title": "Tuition, Fees & Financial Aid",
-      "scraped_at": "2026-05-31T13:26:49.744714+00:00",
+      "scraped_at": "2026-05-31T17:51:40.359371+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/information-about-tuition-fees",
       "page_title": "Tuition & Fees",
-      "scraped_at": "2026-05-31T13:26:50.221691+00:00",
+      "scraped_at": "2026-05-31T17:51:40.927462+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/scholarship-programs",
       "page_title": "Scholarship Programs",
-      "scraped_at": "2026-05-31T13:26:53.270673+00:00",
+      "scraped_at": "2026-05-31T17:51:44.806101+00:00",
       "status_code": "200"
     }
   ]

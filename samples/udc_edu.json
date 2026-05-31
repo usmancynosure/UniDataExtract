@@ -4,8 +4,8 @@
     "location": {
       "city": "Washington",
       "state": "DC",
-      "country": "USA",
-      "postal_code": "20008"
+      "country": null,
+      "postal_code": null
     },
     "contact": {
       "phone": "202-274-5261",
@@ -14,737 +14,137 @@
   },
   "tuition_breakdown": [
     {
-      "fee_type": "Tuition (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2808,
+      "fee_type": "Undergraduate Resident Tuition (per credit hour)",
+      "cost": 324,
       "currency": "USD"
     },
     {
-      "fee_type": "Fees (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
+      "fee_type": "Undergraduate Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
+      "fee_type": "Undergraduate Metro Tuition (per credit hour)",
+      "cost": 374,
       "currency": "USD"
     },
     {
-      "fee_type": "Food (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
+      "fee_type": "Undergraduate Metro Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
+      "fee_type": "Undergraduate Non-Resident Tuition (per credit hour)",
+      "cost": 680,
       "currency": "USD"
     },
     {
-      "fee_type": "Transportation (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
+      "fee_type": "Undergraduate Non-Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Health Insurance (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
+      "fee_type": "Undergraduate Engineering Resident Tuition (per credit hour)",
+      "cost": 345,
       "currency": "USD"
     },
     {
-      "fee_type": "Misc./Personal (Associate's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
+      "fee_type": "Undergraduate Engineering Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Tuition (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2808,
+      "fee_type": "Undergraduate Engineering Metro Tuition (per credit hour)",
+      "cost": 400,
       "currency": "USD"
     },
     {
-      "fee_type": "Fees (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
+      "fee_type": "Undergraduate Engineering Metro Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
+      "fee_type": "Undergraduate Engineering Non-Resident Tuition (per credit hour)",
+      "cost": 725,
       "currency": "USD"
     },
     {
-      "fee_type": "Food (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
+      "fee_type": "Undergraduate Engineering Non-Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
+      "fee_type": "Graduate Resident Tuition (per credit hour)",
+      "cost": 513,
       "currency": "USD"
     },
     {
-      "fee_type": "Transportation (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
+      "fee_type": "Graduate Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Health Insurance (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
+      "fee_type": "Graduate Metro Tuition (per credit hour)",
+      "cost": 580,
       "currency": "USD"
     },
     {
-      "fee_type": "Misc./Personal (Associate's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
+      "fee_type": "Graduate Metro Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Tuition (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 4728,
+      "fee_type": "Graduate Non-Resident Tuition (per credit hour)",
+      "cost": 986,
       "currency": "USD"
     },
     {
-      "fee_type": "Fees (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 370,
+      "fee_type": "Graduate Non-Resident Fee (per credit hour)",
+      "cost": 430,
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Associate's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 4728,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Associate's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 7968,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Associate's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7968,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Associate's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 7776,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 32449,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7776,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 25401,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 8976,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 33649,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 8976,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Metro w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 26601,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 16320,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 40993,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 16320,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 7048,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 92,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Bachelor's, Non-Resident w/Parent, 2024-2025, 9-Month Cost)",
-      "cost": 33945,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 9234,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 528,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Graduate, Resident, 2024-2025, 9-Month Cost)",
-      "cost": 34343,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 10440,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 528,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Graduate, Metro, 2024-2025, 9-Month Cost)",
-      "cost": 35549,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 17748,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Fees (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 370,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Housing (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 14096,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 3128,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Course Materials, Supplies, Equipment (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1149,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Transportation (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1935,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Health Insurance (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 1593,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Misc./Personal (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 2310,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 528,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Graduate, Non-Resident, 2024-2025, 9-Month Cost)",
-      "cost": 42857,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Activity Fee (per semester)",
+      "fee_type": "Activity Fee",
       "cost": 35,
       "currency": "USD"
     },
     {
-      "fee_type": "Athletic/Recreation Fee (per semester)",
+      "fee_type": "Athletic/Recreation Fee",
       "cost": 105,
       "currency": "USD"
     },
     {
-      "fee_type": "Health Services Fee (per semester)",
+      "fee_type": "Health Services Fee",
       "cost": 25,
       "currency": "USD"
     },
     {
-      "fee_type": "Technology Fee (per semester)",
+      "fee_type": "Technology Fee",
       "cost": 75,
       "currency": "USD"
     },
     {
-      "fee_type": "Student Center Fee (per semester)",
+      "fee_type": "Student Center Fee",
       "cost": 140,
       "currency": "USD"
     },
     {
-      "fee_type": "Career and Professional Fee (per semester)",
+      "fee_type": "Career and Professional Fee",
       "cost": 40,
       "currency": "USD"
     },
     {
-      "fee_type": "Sustainability Fee (per semester)",
+      "fee_type": "Sustainability Fee",
       "cost": 10,
       "currency": "USD"
     },
     {
-      "fee_type": "Application Fee (Undergraduate-New, Transfer, and Readmitted)",
+      "fee_type": "Application Fee Undergraduate-New, Transfer, and Readmitted",
       "cost": 50,
       "currency": "USD"
     },
     {
-      "fee_type": "Application Fee (Graduate-New, Transfer, and Readmitted)",
+      "fee_type": "Application Fee Graduate-New, Transfer, and Readmitted",
       "cost": 50,
       "currency": "USD"
     },
@@ -797,6 +197,166 @@
       "fee_type": "Return Check Fee",
       "cost": 50,
       "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Resident Tuition (per credit hour)",
+      "cost": 117,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Resident Fee (per credit hour)",
+      "cost": 430,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Metro Tuition (per credit hour)",
+      "cost": 197,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Metro Fee (per credit hour)",
+      "cost": 430,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Non-Resident Tuition (per credit hour)",
+      "cost": 332,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Community College Non-Resident Fee (per credit hour)",
+      "cost": 430,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Tuition (9-Month Cost)",
+      "cost": 2808,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Fees (9-Month Cost)",
+      "cost": 370,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Housing (9-Month Cost)",
+      "cost": 14096,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Food (9-Month Cost)",
+      "cost": 3128,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Books, Course Materials, Supplies, Equipment (9-Month Cost)",
+      "cost": 1149,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Transportation (9-Month Cost)",
+      "cost": 1935,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Health Insurance (9-Month Cost)",
+      "cost": 1593,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Associate's Degrees Misc./Personal (9-Month Cost)",
+      "cost": 2310,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Tuition (9-Month Cost)",
+      "cost": 7776,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Fees (9-Month Cost)",
+      "cost": 370,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Housing (9-Month Cost)",
+      "cost": 14096,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Food (9-Month Cost)",
+      "cost": 3128,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Books, Course Materials, Supplies, Equipment (9-Month Cost)",
+      "cost": 1149,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Transportation (9-Month Cost)",
+      "cost": 1935,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Health Insurance (9-Month Cost)",
+      "cost": 1593,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Misc./Personal (9-Month Cost)",
+      "cost": 2310,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Undergraduate - Bachelor's Degrees Loan Fee (9-Month Cost)",
+      "cost": 92,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Tuition (9-Month Cost)",
+      "cost": 9234,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Fees (9-Month Cost)",
+      "cost": 370,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Housing (9-Month Cost)",
+      "cost": 14096,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Food (9-Month Cost)",
+      "cost": 3128,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Books, Course Materials, Supplies, Equipment (9-Month Cost)",
+      "cost": 1149,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Transportation (9-Month Cost)",
+      "cost": 1935,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Health Insurance (9-Month Cost)",
+      "cost": 1593,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Misc./Personal (9-Month Cost)",
+      "cost": 2310,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Graduate Degrees Loan Fee (9-Month Cost)",
+      "cost": 528,
+      "currency": "USD"
     }
   ],
   "admission_deadlines": [],
@@ -804,43 +364,43 @@
     {
       "url": "https://www.udc.edu/",
       "page_title": "University of the District of Columbia, Washington, DC - HBCU, Land-Grant University | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:02.135147+00:00",
+      "scraped_at": "2026-05-31T17:53:23.014970+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/admission-deadlines",
       "page_title": "Admission Deadlines | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:02.873391+00:00",
+      "scraped_at": "2026-05-31T17:53:23.517921+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/application-requirements",
       "page_title": "Application Requirements | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:03.642256+00:00",
+      "scraped_at": "2026-05-31T17:53:23.833128+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/transfer-students/admissions-transfer-students",
       "page_title": "Step by Step Admissions Guide for Transfer Students | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:06.060213+00:00",
+      "scraped_at": "2026-05-31T17:53:25.793018+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/tuition-fees",
       "page_title": "Tuition & Fees | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:04.594337+00:00",
+      "scraped_at": "2026-05-31T17:53:24.363805+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/financial-aid/cost-of-attendance",
       "page_title": "Cost of Attendance | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:05.264861+00:00",
+      "scraped_at": "2026-05-31T17:53:25.064263+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/cc/admissions/fees",
       "page_title": "Associates Degree Fees | University of the District of Columbia Community College | University of the District of Columbia",
-      "scraped_at": "2026-05-31T13:28:08.229240+00:00",
+      "scraped_at": "2026-05-31T17:53:27.600646+00:00",
       "status_code": "200"
     }
   ]

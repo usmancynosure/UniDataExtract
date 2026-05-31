@@ -66,3 +66,11 @@ def test_attribution_and_confidence():
     # phone is on the page, so it gets attributed to a source URL
     assert q.field_sources["contact.phone"] == ["https://x.edu/tuition"]
     assert q.ok  # no missing/invalid/duplicate issues here
+
+    # citations carry the exact source line behind each value
+    fields = {c["field"] for c in q.citations}
+    assert "contact.phone" in fields
+    assert any(c["field"].startswith("tuition") for c in q.citations)
+    cost_cite = next(c for c in q.citations if c["field"].startswith("tuition"))
+    assert cost_cite["source"] == "https://x.edu/tuition"
+    assert "11,466" in cost_cite["snippet"]

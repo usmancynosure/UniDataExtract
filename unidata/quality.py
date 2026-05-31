@@ -29,6 +29,22 @@ def _looks_like_date(text: str) -> bool:
     return bool(re.search(r"\b\d{1,2}[/-]\d{1,2}\b", text))  # 11/1, 1-15
 
 
+def _snippet(forms: list[str], page_text: list[tuple[str, str]], by_digits: bool = False) -> dict | None:
+    """Find the source URL and exact line where a value first appears (a citation).
+
+    `forms` are alternate string renderings of the value (e.g. "11,466" / "11466").
+    With `by_digits`, the match compares digit-only strings (for phone numbers).
+    """
+    for url, text in page_text:
+        for line in text.splitlines():
+            hay = re.sub(r"\D", "", line) if by_digits else line
+            for f in forms:
+                needle = re.sub(r"\D", "", f) if by_digits else f
+                if needle and needle in hay:
+                    return {"source": url, "snippet": line.strip()[:160]}
+    return None
+
+
 @dataclass
 class QualityReport:
     missing_fields: list[str] = field(default_factory=list)
@@ -36,6 +52,7 @@ class QualityReport:
     duplicates: list[str] = field(default_factory=list)
     field_sources: dict[str, list[str]] = field(default_factory=dict)  # field -> source URLs
     confidence: dict[str, str] = field(default_factory=dict)  # field -> high|medium|low
+    citations: list[dict] = field(default_factory=list)  # field -> {value, source, snippet}
 
     @property
     def issue_count(self) -> int:
@@ -53,6 +70,7 @@ class QualityReport:
             "duplicates": self.duplicates,
             "field_sources": self.field_sources,
             "confidence": self.confidence,
+            "citations": self.citations,
         }
 
 
@@ -123,4 +141,23 @@ def assess(data: UniversityData, pages: list, method: str) -> QualityReport:
     rep.confidence["overall"] = base if data.tuition_breakdown else "low"
     rep.confidence["tuition_grounded"] = f"{grounded}/{len(data.tuition_breakdown)}"
     rep.confidence["method"] = method
+
+    # --- citations (evidence spans) -------------------------------------
+    # The exact source line each value came from. Capped for tuition so the side
+    # artifact stays a reasonable size on schools with huge cost matrices.
+    for t in data.tuition_breakdown[:25]:
+        if t.cost is None:
+            continue
+        cit = _snippet([f"{t.cost:,}", str(t.cost)], page_text)
+        if cit:
+            rep.citations.append({"field": f"tuition: {t.fee_type}", "value": t.cost, **cit})
+    if con and con.phone:
+        cit = _snippet([con.phone], page_text, by_digits=True)
+        if cit:
+            rep.citations.append({"field": "contact.phone", "value": con.phone, **cit})
+    if con and con.email:
+        cit = _snippet([con.email], page_text)
+        if cit:
+            rep.citations.append({"field": "contact.email", "value": con.email, **cit})
+
     return rep

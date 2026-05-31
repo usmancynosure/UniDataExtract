@@ -14,7 +14,165 @@
   },
   "confidence": {
     "overall": "high",
-    "tuition_grounded": "157/157",
+    "tuition_grounded": "69/69",
     "method": "gemini"
-  }
+  },
+  "citations": [
+    {
+      "field": "tuition: Undergraduate Resident Tuition (per credit hour)",
+      "value": 324,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$324.00"
+    },
+    {
+      "field": "tuition: Undergraduate Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Undergraduate Metro Tuition (per credit hour)",
+      "value": 374,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$2,374.00"
+    },
+    {
+      "field": "tuition: Undergraduate Metro Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Undergraduate Non-Resident Tuition (per credit hour)",
+      "value": 680,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$680.00"
+    },
+    {
+      "field": "tuition: Undergraduate Non-Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Resident Tuition (per credit hour)",
+      "value": 345,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$345.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Metro Tuition (per credit hour)",
+      "value": 400,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$3,400.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Metro Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Non-Resident Tuition (per credit hour)",
+      "value": 725,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$1,725.00"
+    },
+    {
+      "field": "tuition: Undergraduate Engineering Non-Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Graduate Resident Tuition (per credit hour)",
+      "value": 513,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$513.00"
+    },
+    {
+      "field": "tuition: Graduate Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Graduate Metro Tuition (per credit hour)",
+      "value": 580,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$580.00"
+    },
+    {
+      "field": "tuition: Graduate Metro Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Graduate Non-Resident Tuition (per credit hour)",
+      "value": 986,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$986.00"
+    },
+    {
+      "field": "tuition: Graduate Non-Resident Fee (per credit hour)",
+      "value": 430,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$430.00"
+    },
+    {
+      "field": "tuition: Activity Fee",
+      "value": 35,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$1,035.00"
+    },
+    {
+      "field": "tuition: Athletic/Recreation Fee",
+      "value": 105,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$3,105.00"
+    },
+    {
+      "field": "tuition: Health Services Fee",
+      "value": 25,
+      "source": "https://www.udc.edu/",
+      "snippet": "25"
+    },
+    {
+      "field": "tuition: Technology Fee",
+      "value": 75,
+      "source": "https://www.udc.edu/",
+      "snippet": "UDC175"
+    },
+    {
+      "field": "tuition: Student Center Fee",
+      "value": 140,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$4,140.00"
+    },
+    {
+      "field": "tuition: Career and Professional Fee",
+      "value": 40,
+      "source": "https://www.udc.edu/admissions/tuition-fees",
+      "snippet": "$1,402.00"
+    },
+    {
+      "field": "tuition: Sustainability Fee",
+      "value": 10,
+      "source": "https://www.udc.edu/",
+      "snippet": "Mon., June 1, 2026, 8 AM - 5:30 PM, Building 56, Room 110 - Executive Conference Room, Building 56, Room 129 - Conference Room, Building 56, Room 132 - Conferen"
+    },
+    {
+      "field": "contact.phone",
+      "value": "202-274-5261",
+      "source": "https://www.udc.edu/admissions/admission-deadlines",
+      "snippet": "202-274-5261"
+    }
+  ]
 }

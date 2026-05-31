@@ -1,0 +1,9 @@
+{
+  "domain": "salisbury.edu",
+  "university_name": "Salisbury University",
+  "state": "MD",
+  "phone": "410-543-6161",
+  "has_tuition": true,
+  "expected_costs": [11466],
+  "deadline_types": ["Early Decision", "Regular Decision", "Transfer Admission"]
+}

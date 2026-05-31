@@ -3,8 +3,8 @@
     "university_name": "Salisbury University",
     "location": {
       "city": "Salisbury",
-      "state": "MD",
-      "country": "USA",
+      "state": "Maryland",
+      "country": null,
       "postal_code": null
     },
     "contact": {
@@ -14,154 +14,234 @@
   },
   "tuition_breakdown": [
     {
-      "fee_type": "Tuition and Mandatory Fees (Maryland Residents, 2026-2027)",
+      "fee_type": "Tuition and Mandatory Fees (Maryland Residents)",
       "cost": 11466,
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (Maryland Residents, 2026-2027)",
-      "cost": 8150,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Food (Maryland Residents, 2026-2027)",
-      "cost": 6368,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Direct Costs (Maryland Residents, 2026-2027)",
-      "cost": 25984,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Books, Supplies, Course Materials & Equipment (Maryland Residents, 2026-2027)",
-      "cost": 1300,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Personal/Trans/Misc. (Maryland Residents, 2026-2027)",
-      "cost": 3900,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Loan Fee Allowance (Maryland Residents, 2026-2027)",
-      "cost": 312,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Indirect Costs (Maryland Residents, 2026-2027)",
-      "cost": 5512,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Total Cost of Attendance (Maryland Residents, 2026-2027)",
-      "cost": 31496,
-      "currency": "USD"
-    },
-    {
-      "fee_type": "Tuition and Mandatory Fees (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Tuition and Mandatory Fees (Out-of-State Residents)",
       "cost": 23590,
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Housing* (Maryland Residents)",
       "cost": 8150,
       "currency": "USD"
     },
     {
-      "fee_type": "Food (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Housing* (Out-of-State Residents)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food** (Maryland Residents)",
       "cost": 6368,
       "currency": "USD"
     },
     {
-      "fee_type": "Direct Costs (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Food** (Out-of-State Residents)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Maryland Residents)",
+      "cost": 25984,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Out-of-State Residents)",
       "cost": 38108,
       "currency": "USD"
     },
     {
-      "fee_type": "Books, Supplies, Course Materials & Equipment (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Maryland Residents)",
       "cost": 1300,
       "currency": "USD"
     },
     {
-      "fee_type": "Personal/Trans/Misc. (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Out-of-State Residents)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal/Trans/Misc. (Maryland Residents)",
       "cost": 3900,
       "currency": "USD"
     },
     {
-      "fee_type": "Loan Fee Allowance (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Personal/Trans/Misc. (Out-of-State Residents)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Maryland Residents)",
       "cost": 312,
       "currency": "USD"
     },
     {
-      "fee_type": "Indirect Costs (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Loan Fee Allowance (Out-of-State Residents)",
+      "cost": 312,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Indirect Costs (Maryland Residents)",
       "cost": 5512,
       "currency": "USD"
     },
     {
-      "fee_type": "Total Cost of Attendance (Out-of-State Residents, 2026-2027)",
+      "fee_type": "Indirect Costs (Out-of-State Residents)",
+      "cost": 5512,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Maryland Residents)",
+      "cost": 31496,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Out-of-State Residents)",
       "cost": 43620,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition (Maryland Residents - Graduate Per Credit Hour)",
+      "cost": 453,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition (Non-Residents - Graduate Per Credit Hour)",
+      "cost": 837,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition (Non-Residents Regional Hagerstown - Graduate Per Credit Hour)",
+      "cost": 549,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Mandatory Fees (Graduate Per Credit Hour)",
+      "cost": 129,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Combined Tuition and Fees (Maryland Residents - Graduate Per Credit Hour)",
+      "cost": 582,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Combined Tuition and Fees (Non-Residents - Graduate Per Credit Hour)",
+      "cost": 966,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Combined Tuition and Fees (Non-Residents Regional Hagerstown - Graduate Per Credit Hour)",
+      "cost": 678,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Maryland Residents - Graduate Annual)",
+      "cost": 10476,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Non-Resident - Graduate Annual)",
+      "cost": 17388,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Non-Resident Regional Hagerstown - Graduate Annual)",
+      "cost": 12204,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Housing Cost Allowance (Graduate Annual)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food Allowance (Graduate Annual)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Graduate Annual)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal Expenses and Transportation Allowance (Graduate Annual)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Graduate Annual)",
+      "cost": 326,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Maryland Residents - Graduate Annual)",
+      "cost": 30520,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Non-Resident - Graduate Annual)",
+      "cost": 37432,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Non-Resident Regional Hagerstown - Graduate Annual)",
+      "cost": 32248,
       "currency": "USD"
     }
   ],
   "admission_deadlines": [
     {
-      "deadline_type": "Early Decision",
-      "deadline_date": "November 15",
-      "notes": "First-year applicants; binding agreement"
-    },
-    {
       "deadline_type": "Regular Decision",
       "deadline_date": "January 15",
-      "notes": "First-year applicants; recommended deadline, applications after this date considered on space-available basis"
-    },
-    {
-      "deadline_type": "Transfer Admission",
-      "deadline_date": null,
-      "notes": "Rolling basis, provided files are complete and space is available"
+      "notes": "Apply by the Regular Decision deadline of January 15 to join The Flock next fall!"
     }
   ],
   "page_metadata": [
     {
       "url": "https://www.salisbury.edu/",
       "page_title": "Salisbury University, Universities in Maryland",
-      "scraped_at": "2026-05-31T13:27:22.586526+00:00",
-      "status_code": "200"
-    },
-    {
-      "url": "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
-      "page_title": "Admissions Requirements For Transfer Applicants | Salisbury University",
-      "scraped_at": "2026-05-31T13:27:25.602567+00:00",
-      "status_code": "200"
-    },
-    {
-      "url": "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx",
-      "page_title": "First Year Application Process | Salisbury University",
-      "scraped_at": "2026-05-31T13:27:24.545087+00:00",
+      "scraped_at": "2026-05-31T17:52:44.615448+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/how-to-apply.aspx",
       "page_title": "How to Apply to Salisbury University",
-      "scraped_at": "2026-05-31T13:27:23.647718+00:00",
+      "scraped_at": "2026-05-31T17:52:59.086013+00:00",
+      "status_code": "200"
+    },
+    {
+      "url": "https://www.salisbury.edu/admissions/apply-now.aspx",
+      "page_title": "Apply Now | Salisbury University",
+      "scraped_at": "2026-05-31T17:52:48.075359+00:00",
+      "status_code": "200"
+    },
+    {
+      "url": "https://www.salisbury.edu/admissions/first-year-students/",
+      "page_title": "Applying for First Year Students | Salisbury University",
+      "scraped_at": "2026-05-31T17:52:50.177796+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
       "page_title": "Salisbury University Cost of Attendance | Salisbury University",
-      "scraped_at": "2026-05-31T13:27:28.829226+00:00",
+      "scraped_at": "2026-05-31T17:52:46.858159+00:00",
       "status_code": "200"
     },
     {
-      "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/25-26-cost-of-attendance.aspx",
-      "page_title": "Salisbury University Cost of Attendance | Salisbury University",
-      "scraped_at": "2026-05-31T13:27:29.958103+00:00",
+      "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/net-price-calculator.aspx",
+      "page_title": "Net Price Calculator | Salisbury University",
+      "scraped_at": "2026-05-31T17:52:47.246627+00:00",
       "status_code": "200"
     },
     {
-      "url": "https://www.salisbury.edu/admissions/international-students/tuition-fees.aspx",
-      "page_title": "International Admissions Tuition & Fees | Salisbury University",
-      "scraped_at": "2026-05-31T13:27:35.090378+00:00",
+      "url": "https://www.salisbury.edu/admissions/financial-aid/college-cost-transparency.aspx",
+      "page_title": "College Cost Transparency | Financial Aid | Salisbury University",
+      "scraped_at": "2026-05-31T17:52:59.774066+00:00",
       "status_code": "200"
     }
   ]

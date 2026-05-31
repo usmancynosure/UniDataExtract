@@ -27,3 +27,5 @@ jobs:
         run: mypy
       - name: Test
         run: pytest
+      - name: Eval (offline, vs gold set)
+        run: python evals/run_eval.py

@@ -17,5 +17,85 @@
     "overall": "high",
     "tuition_grounded": "11/11",
     "method": "gemini"
-  }
+  },
+  "citations": [
+    {
+      "field": "tuition: Tuition (2026-27)",
+      "value": 72600,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "72,600"
+    },
+    {
+      "field": "tuition: Housing (Living On Campus, 2026-27)",
+      "value": 11400,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "11,400"
+    },
+    {
+      "field": "tuition: Food (Living On Campus, 2026-27)",
+      "value": 6980,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "6,980"
+    },
+    {
+      "field": "tuition: Student Activity Fee (2026-27)",
+      "value": 900,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "900"
+    },
+    {
+      "field": "tuition: Books, course materials, supplies and equipment (2026-27)",
+      "value": 900,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "900"
+    },
+    {
+      "field": "tuition: Transportation (2026-27)",
+      "value": 800,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "*Represents fees before financial aid and grants. Keep in mind that this comprehensive fee may not represent the true cost to your family. For the 2026-27 acade"
+    },
+    {
+      "field": "tuition: Personal Expenses (2026-27)",
+      "value": 2000,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "$2,000"
+    },
+    {
+      "field": "tuition: Total Cost of Attendance (Living On Campus, 2026-27)",
+      "value": 95580,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "$95,580"
+    },
+    {
+      "field": "tuition: Orientation fee (one time)",
+      "value": 500,
+      "source": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants",
+      "snippet": "Admitted transfer students must submit a $500 enrollment deposit, which will be credited toward tuition. The deposit will not be due until the Registrar has com"
+    },
+    {
+      "field": "tuition: International Orientation fee (one time)",
+      "value": 750,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "International Orientation fee: $750 one time only"
+    },
+    {
+      "field": "tuition: Single-course rate (part-time students)",
+      "value": 6600,
+      "source": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
+      "snippet": "Single-course rate (subject to tuition refund policy): $6,600 (part-time students only)"
+    },
+    {
+      "field": "contact.phone",
+      "value": "570-577-3000",
+      "source": "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
+      "snippet": "570-577-3000"
+    },
+    {
+      "field": "contact.email",
+      "value": "admissions@bucknell.edu",
+      "source": "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
+      "snippet": "admissions@bucknell.edu"
+    }
+  ]
 }
