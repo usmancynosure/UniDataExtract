@@ -45,7 +45,31 @@ def render_result(console: Console, result: PipelineResult) -> None:
     _render_tuition(console, data)
     _render_deadlines(console, data)
     _render_sources(console, data)
+    _render_quality(console, result)
     console.print()
+
+
+def _render_quality(console: Console, result: PipelineResult) -> None:
+    q = result.quality
+    conf = q.confidence.get("overall", "n/a")
+    conf_color = {"high": "green", "medium": "yellow", "low": "red"}.get(conf, "white")
+    head = Text.assemble(
+        ("confidence ", "dim"), (conf, conf_color),
+        ("   grounded ", "dim"), (q.confidence.get("tuition_grounded", "—"), "white"),
+        ("   issues ", "dim"), (str(q.issue_count), "red" if q.issue_count else "green"),
+        ("   time ", "dim"), (f"{result.elapsed_seconds:.1f}s", "white"),
+    )
+    lines = [head]
+    if q.missing_fields:
+        lines.append(Text(f"missing: {', '.join(q.missing_fields)}", style="yellow"))
+    if q.invalid_dates:
+        lines.append(Text(f"invalid dates: {', '.join(q.invalid_dates[:3])}", style="yellow"))
+    if q.duplicates:
+        lines.append(Text(f"duplicates: {len(q.duplicates)}", style="yellow"))
+    if q.field_sources:
+        attr = "; ".join(f"{k}→{len(v)} src" for k, v in q.field_sources.items())
+        lines.append(Text(f"attribution: {attr}", style="dim"))
+    console.print(Panel(Text("\n").join(lines), title="Quality & confidence", border_style="dim", expand=False))
 
 
 def _render_overview(console: Console, data) -> None:

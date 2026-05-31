@@ -167,6 +167,15 @@ if go and domain.strip():
     for col, html in zip(cols, cards, strict=False):
         col.markdown(html, unsafe_allow_html=True)
 
+    q = result.quality
+    st.caption(
+        f"Confidence: **{q.confidence.get('overall', 'n/a')}** · "
+        f"tuition grounded {q.confidence.get('tuition_grounded', '—')} · "
+        f"{q.issue_count} quality issue(s) · {result.elapsed_seconds:.1f}s"
+    )
+    if q.missing_fields:
+        st.warning("Missing: " + ", ".join(q.missing_fields), icon="⚠️")
+
     left, right = st.columns([1, 1])
     with left:
         loc = ov.location if ov else None
@@ -240,7 +249,7 @@ if go and domain.strip():
     dl1.download_button("⬇ Download JSON", payload, file_name=f"{slug}.json", use_container_width=True)
     dl2.download_button(
         "⬇ Download HTML report",
-        to_html(data, domain),
+        to_html(data, domain, quality=result.quality),
         file_name=f"{slug}.html",
         mime="text/html",
         use_container_width=True,

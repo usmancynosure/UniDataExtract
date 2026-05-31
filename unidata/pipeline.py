@@ -9,12 +9,14 @@ from __future__ import annotations
 
 import logging
 import os
+import time
 from collections.abc import Callable
 from dataclasses import dataclass
 
 from .config import CrawlSettings
 from .crawl import CrawledPage, crawl, select_sources
 from .extractors import GeminiExtractor, HeuristicExtractor, ground
+from .quality import QualityReport, assess
 from .schema import PageMetadata, UniversityData
 
 log = logging.getLogger("unidata.pipeline")
@@ -27,6 +29,8 @@ class PipelineResult:
     domain: str
     homepage_url: str
     pages_crawled: int
+    elapsed_seconds: float
+    quality: QualityReport
 
 
 def run(
@@ -37,6 +41,7 @@ def run(
 ) -> PipelineResult:
     """Run extract -> transform -> load for one university domain."""
     settings = settings or CrawlSettings()
+    started = time.monotonic()
 
     # --- Extract: discover + crawl --------------------------------------
     homepage_url, pages = crawl(domain, settings, on_page=on_page)
@@ -65,12 +70,26 @@ def run(
 
     # --- Load: assemble + validate --------------------------------------
     data = UniversityData(page_metadata=_page_metadata(used), **core)
+
+    # --- Quality + execution summary ------------------------------------
+    quality = assess(data, used, method)
+    elapsed = time.monotonic() - started
+    log.info(
+        "summary domain=%s method=%s elapsed=%.1fs pages_crawled=%d pages_used=%d "
+        "fees=%d deadlines=%d issues=%d confidence=%s",
+        domain, method, elapsed, len(pages), len(used),
+        len(data.tuition_breakdown), len(data.admission_deadlines),
+        quality.issue_count, quality.confidence.get("overall", "n/a"),
+    )
+
     return PipelineResult(
         data=data,
         method=method,
         domain=domain,
         homepage_url=homepage_url,
         pages_crawled=len(pages),
+        elapsed_seconds=elapsed,
+        quality=quality,
     )
 
 

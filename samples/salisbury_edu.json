@@ -5,7 +5,7 @@
       "city": "Salisbury",
       "state": "MD",
       "country": "USA",
-      "postal_code": "21801"
+      "postal_code": null
     },
     "contact": {
       "phone": "410-543-6161",
@@ -29,6 +29,11 @@
       "currency": "USD"
     },
     {
+      "fee_type": "Direct Costs (Maryland Residents, 2026-2027)",
+      "cost": 25984,
+      "currency": "USD"
+    },
+    {
       "fee_type": "Books, Supplies, Course Materials & Equipment (Maryland Residents, 2026-2027)",
       "cost": 1300,
       "currency": "USD"
@@ -41,6 +46,11 @@
     {
       "fee_type": "Loan Fee Allowance (Maryland Residents, 2026-2027)",
       "cost": 312,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Indirect Costs (Maryland Residents, 2026-2027)",
+      "cost": 5512,
       "currency": "USD"
     },
     {
@@ -64,6 +74,11 @@
       "currency": "USD"
     },
     {
+      "fee_type": "Direct Costs (Out-of-State Residents, 2026-2027)",
+      "cost": 38108,
+      "currency": "USD"
+    },
+    {
       "fee_type": "Books, Supplies, Course Materials & Equipment (Out-of-State Residents, 2026-2027)",
       "cost": 1300,
       "currency": "USD"
@@ -79,6 +94,11 @@
       "currency": "USD"
     },
     {
+      "fee_type": "Indirect Costs (Out-of-State Residents, 2026-2027)",
+      "cost": 5512,
+      "currency": "USD"
+    },
+    {
       "fee_type": "Total Cost of Attendance (Out-of-State Residents, 2026-2027)",
       "cost": 43620,
       "currency": "USD"
@@ -88,60 +108,60 @@
     {
       "deadline_type": "Early Decision",
       "deadline_date": "November 15",
-      "notes": "For high school seniors. Decisions by December 15. $300 deposit by January 15. Binding agreement."
+      "notes": "First-year applicants; binding agreement"
     },
     {
       "deadline_type": "Regular Decision",
       "deadline_date": "January 15",
-      "notes": "For first-year students. Candidates notified by March 15. $300 deposit by May 1. Applications after deadline considered on space-available basis."
+      "notes": "First-year applicants; recommended deadline, applications after this date considered on space-available basis"
     },
     {
       "deadline_type": "Transfer Admission",
       "deadline_date": null,
-      "notes": "Rolling basis, space available. For transfer applicants."
+      "notes": "Rolling basis, provided files are complete and space is available"
     }
   ],
   "page_metadata": [
     {
       "url": "https://www.salisbury.edu/",
       "page_title": "Salisbury University, Universities in Maryland",
-      "scraped_at": "2026-05-31T12:42:58.875880+00:00",
+      "scraped_at": "2026-05-31T13:27:22.586526+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
       "page_title": "Admissions Requirements For Transfer Applicants | Salisbury University",
-      "scraped_at": "2026-05-31T12:43:01.893590+00:00",
+      "scraped_at": "2026-05-31T13:27:25.602567+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx",
       "page_title": "First Year Application Process | Salisbury University",
-      "scraped_at": "2026-05-31T12:43:00.877707+00:00",
+      "scraped_at": "2026-05-31T13:27:24.545087+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/how-to-apply.aspx",
       "page_title": "How to Apply to Salisbury University",
-      "scraped_at": "2026-05-31T12:43:00.012676+00:00",
+      "scraped_at": "2026-05-31T13:27:23.647718+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
       "page_title": "Salisbury University Cost of Attendance | Salisbury University",
-      "scraped_at": "2026-05-31T12:43:06.118840+00:00",
+      "scraped_at": "2026-05-31T13:27:28.829226+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/25-26-cost-of-attendance.aspx",
       "page_title": "Salisbury University Cost of Attendance | Salisbury University",
-      "scraped_at": "2026-05-31T12:43:07.324191+00:00",
+      "scraped_at": "2026-05-31T13:27:29.958103+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/international-students/tuition-fees.aspx",
       "page_title": "International Admissions Tuition & Fees | Salisbury University",
-      "scraped_at": "2026-05-31T12:43:13.023182+00:00",
+      "scraped_at": "2026-05-31T13:27:35.090378+00:00",
       "status_code": "200"
     }
   ]

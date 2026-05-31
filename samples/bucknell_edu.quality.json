@@ -1,0 +1,21 @@
+{
+  "issue_count": 0,
+  "missing_fields": [],
+  "invalid_dates": [],
+  "duplicates": [],
+  "field_sources": {
+    "contact.phone": [
+      "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
+      "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants"
+    ],
+    "contact.email": [
+      "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
+      "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants"
+    ]
+  },
+  "confidence": {
+    "overall": "high",
+    "tuition_grounded": "11/11",
+    "method": "gemini"
+  }
+}

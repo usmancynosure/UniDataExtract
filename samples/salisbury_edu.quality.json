@@ -1,0 +1,22 @@
+{
+  "issue_count": 0,
+  "missing_fields": [],
+  "invalid_dates": [],
+  "duplicates": [],
+  "field_sources": {
+    "contact.phone": [
+      "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
+      "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx",
+      "https://www.salisbury.edu/admissions/international-students/tuition-fees.aspx"
+    ],
+    "contact.email": [
+      "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
+      "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx"
+    ]
+  },
+  "confidence": {
+    "overall": "high",
+    "tuition_grounded": "18/18",
+    "method": "gemini"
+  }
+}

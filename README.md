@@ -75,6 +75,19 @@ python main.py bucknell.edu --render
 
 CLI flags: `--out-dir`, `--json`, `--no-llm`, `--render`, `--max-depth` (2), `--max-pages` (30), `-v`.
 
+## 🎁 Bonus features
+
+| Bonus task | How it's implemented |
+|---|---|
+| **Automated tests** | 17 offline tests (`tests/`) — discovery, normalization, extraction + grounding, quality, reports |
+| **Retry & error handling** | `urllib3` retry on 5xx, `RequestException` guards, timeouts, Playwright fallback (`fetch.py`) |
+| **Structured logging & execution summaries** | `--log-json` (JSON-per-line logs), a per-run summary log line, a CLI **Run summary** table for batches, and per-result timing |
+| **Data-quality checks** | `quality.py` flags missing fields, invalid dates, and duplicate records; plus cost-range + dedupe + Pydantic validation |
+| **Confidence & source attribution** | per-field source-URL attribution and a grounded/method-based confidence score, shown in the CLI, HTML report, and a side `*.quality.json` |
+| **Multiple domains per run** | `unidata a.edu b.edu c.edu --out-dir …` processes a batch and prints an aggregate summary |
+
+These live in the CLI / logs / report / `*.quality.json` — never in the JSON, which stays exactly the provided schema.
+
 ## 🧭 How it works
 
 | Stage | Module(s) | What happens |
