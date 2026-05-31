@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 from unidata.config import CrawlSettings
 from unidata.pipeline import run
 from unidata.present import fee_category, format_cost, tuition_summary
+from unidata.report import to_html
 
 load_dotenv()
 
@@ -111,48 +112,23 @@ def _metric(label: str, value, accent: bool = False) -> str:
     return f'<div class="metric"><div class="label">{label}</div><div class="{cls}">{value}</div></div>'
 
 
-# --------------------------------------------------------------------------
-# Sidebar controls
-# --------------------------------------------------------------------------
-with st.sidebar:
-    st.header("Run extraction")
-    domain = st.text_input("University domain", value="bucknell.edu", placeholder="e.g. salisbury.edu")
-    has_key = bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
-    use_llm = st.toggle("Gemini extraction", value=has_key, help="Falls back to heuristics if off or no key")
-    if use_llm and not has_key:
-        st.warning("No GEMINI_API_KEY found — using the heuristic extractor.", icon="⚠️")
-    render = st.toggle("JavaScript rendering (Playwright)", value=False)
-    max_pages = st.slider("Max pages", 6, 40, 24)
-    max_depth = st.slider("Max crawl depth", 1, 2, 2)
-    go = st.button("Extract", type="primary", use_container_width=True)
-    st.caption("Discovery is deterministic — the LLM only structures already-fetched text.")
+def _parse_domains(raw: str) -> list[str]:
+    """Split the text-area input into a clean, de-duplicated list of domains."""
+    seen, out = set(), []
+    for token in raw.replace(",", "\n").splitlines():
+        d = token.strip()
+        if d and d.lower() not in seen:
+            seen.add(d.lower())
+            out.append(d)
+    return out
 
 
-# --------------------------------------------------------------------------
-# Main
-# --------------------------------------------------------------------------
-if go and domain.strip():
-    settings = CrawlSettings(max_pages=max_pages, max_depth=max_depth, render=render)
-
-    with st.status(f"Discovering **{domain}** …", expanded=True) as status:
-        log = st.empty()
-        seen: list[str] = []
-
-        def on_page(page) -> None:
-            seen.append(f"`{page.category}` · d{page.depth} · {page.result.url}")
-            log.markdown("  \n".join(seen[-12:]))
-
-        try:
-            result = run(domain.strip(), settings=settings, use_llm=use_llm, on_page=on_page)
-            status.update(label=f"Done — {len(result.data.page_metadata)} pages used", state="complete")
-        except Exception as exc:  # noqa: BLE001 - surface any failure to the UI
-            status.update(label="Failed", state="error")
-            st.error(str(exc))
-            st.stop()
-
+def render_one(result) -> None:
+    """Render the full detail view for a single PipelineResult."""
     data = result.data
     ov = data.overview
-    st.markdown(f"## {(ov.university_name if ov else None) or result.domain}")
+    domain = result.domain
+    key = domain.replace(".", "_")
 
     summary = tuition_summary(data.tuition_breakdown)
     lowest = f"${summary['lowest']:,}" if summary["lowest"] is not None else "—"
@@ -221,7 +197,7 @@ if go and domain.strip():
             key=lambda r: r["Category"],
         )
         cats = sorted({r["Category"] for r in rows})
-        chosen = st.multiselect("Filter by category", cats, default=cats)
+        chosen = st.multiselect("Filter by category", cats, default=cats, key=f"cats_{key}")
         st.dataframe(
             [r for r in rows if r["Category"] in chosen],
             hide_index=True,
@@ -233,34 +209,120 @@ if go and domain.strip():
 
     st.markdown('<div class="sec-title">Sources (page metadata)</div>', unsafe_allow_html=True)
     st.dataframe(
-        [
-            {"Status": s.status_code, "Page title": s.page_title, "URL": s.url}
-            for s in data.page_metadata
-        ],
+        [{"Status": s.status_code, "Page title": s.page_title, "URL": s.url} for s in data.page_metadata],
         hide_index=True,
         use_container_width=True,
     )
 
-    from unidata.report import to_html
-
     payload = data.model_dump_json(indent=2)
-    slug = domain.replace(".", "_")
     dl1, dl2 = st.columns(2)
-    dl1.download_button("⬇ Download JSON", payload, file_name=f"{slug}.json", use_container_width=True)
+    dl1.download_button(
+        "⬇ Download JSON", payload, file_name=f"{key}.json", use_container_width=True, key=f"json_{key}"
+    )
     dl2.download_button(
         "⬇ Download HTML report",
         to_html(data, domain, quality=result.quality),
-        file_name=f"{slug}.html",
+        file_name=f"{key}.html",
         mime="text/html",
         use_container_width=True,
+        key=f"html_{key}",
     )
     with st.expander("Raw JSON"):
         st.code(payload, language="json")
+
+
+def _label(result) -> str:
+    ov = result.data.overview
+    return (ov.university_name if ov and ov.university_name else result.domain)
+
+
+# --------------------------------------------------------------------------
+# Sidebar controls
+# --------------------------------------------------------------------------
+with st.sidebar:
+    st.header("Run extraction")
+    domains_raw = st.text_area(
+        "University domain(s)",
+        value="bucknell.edu",
+        placeholder="one per line, e.g.\nbucknell.edu\nsalisbury.edu\nudc.edu",
+        height=110,
+    )
+    st.caption("Enter one or more domains — one per line or comma-separated.")
+    has_key = bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
+    use_llm = st.toggle("Gemini extraction", value=has_key, help="Falls back to heuristics if off or no key")
+    if use_llm and not has_key:
+        st.warning("No GEMINI_API_KEY found — using the heuristic extractor.", icon="⚠️")
+    render = st.toggle("JavaScript rendering (Playwright)", value=False)
+    max_pages = st.slider("Max pages", 6, 40, 24)
+    max_depth = st.slider("Max crawl depth", 1, 2, 2)
+    go = st.button("Extract", type="primary", use_container_width=True)
+    st.caption("Discovery is deterministic — the LLM only structures already-fetched text.")
+
+
+# --------------------------------------------------------------------------
+# Main
+# --------------------------------------------------------------------------
+domains = _parse_domains(domains_raw)
+
+if go and domains:
+    settings = CrawlSettings(max_pages=max_pages, max_depth=max_depth, render=render)
+    results = []
+    errors = []
+
+    with st.status(f"Processing {len(domains)} domain(s) …", expanded=True) as status:
+        log = st.empty()
+        seen: list[str] = []
+
+        def on_page(page) -> None:
+            seen.append(f"`{page.category}` · d{page.depth} · {page.result.url}")
+            log.markdown("  \n".join(seen[-10:]))
+
+        for i, d in enumerate(domains, 1):
+            status.update(label=f"[{i}/{len(domains)}] Discovering **{d}** …")
+            seen.clear()
+            try:
+                results.append(run(d, settings=settings, use_llm=use_llm, on_page=on_page))
+            except Exception as exc:  # noqa: BLE001 - collect and report per-domain
+                errors.append((d, str(exc)))
+        state = "complete" if not errors else "error"
+        status.update(label=f"Done — {len(results)} ok · {len(errors)} failed", state=state)
+
+    for d, msg in errors:
+        st.error(f"{d}: {msg}")
+
+    if len(results) > 1:
+        # Aggregate run summary across all domains.
+        st.markdown('<div class="sec-title">Run summary</div>', unsafe_allow_html=True)
+        st.dataframe(
+            [
+                {
+                    "University": _label(r),
+                    "Domain": r.domain,
+                    "Extractor": r.method,
+                    "Fees": len(r.data.tuition_breakdown),
+                    "Deadlines": len(r.data.admission_deadlines),
+                    "Confidence": r.quality.confidence.get("overall", "—"),
+                    "Issues": r.quality.issue_count,
+                    "Time (s)": round(r.elapsed_seconds, 1),
+                }
+                for r in results
+            ],
+            hide_index=True,
+            use_container_width=True,
+        )
+        # One tab per university for the full detail view.
+        for tab, r in zip(st.tabs([_label(r) for r in results]), results, strict=False):
+            with tab:
+                render_one(r)
+    elif results:
+        st.markdown(f"## {_label(results[0])}")
+        render_one(results[0])
 else:
     st.markdown(
         '<div class="card"><h3>Get started</h3>'
-        '<p style="color:#475569;margin:.2rem 0 0">Enter a university domain in the sidebar '
-        'and click <b>Extract</b>. The pipeline discovers the Admissions and Tuition pages on '
-        'its own, then returns clean, validated data.</p></div>',
+        '<p style="color:#475569;margin:.2rem 0 0">Enter one or more university domains in the '
+        'sidebar (one per line) and click <b>Extract</b>. The pipeline discovers the Admissions '
+        'and Tuition pages on its own, then returns clean, validated data — with a run summary '
+        'and a tab per university for batches.</p></div>',
         unsafe_allow_html=True,
     )
