@@ -26,7 +26,7 @@ dependencies = [
 [project.optional-dependencies]
 render = ["playwright>=1.40"]      # JavaScript rendering backend (--render)
 ui = ["streamlit>=1.30"]           # web interface (app.py)
-dev = ["pytest>=8.0", "ruff>=0.4"]
+dev = ["pytest>=8.0", "ruff>=0.4", "mypy>=1.8"]
 
 [project.scripts]
 unidata = "unidata.cli:main"
@@ -37,6 +37,12 @@ packages = ["unidata"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.mypy]
+python_version = "3.10"
+files = ["unidata"]
+ignore_missing_imports = true   # google-genai / streamlit ship no stubs
+check_untyped_defs = true
 
 [tool.ruff]
 line-length = 100

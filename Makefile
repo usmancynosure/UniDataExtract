@@ -24,6 +24,11 @@ test:                   ## Run the offline unit tests
 lint:                   ## Lint with ruff
 	$(VENV)/bin/ruff check unidata tests
 
+typecheck:              ## Static type-check with mypy
+	$(VENV)/bin/mypy
+
+check: lint typecheck test  ## Run lint + type-check + tests
+
 format:                 ## Auto-format with ruff
 	$(VENV)/bin/ruff format unidata tests
 

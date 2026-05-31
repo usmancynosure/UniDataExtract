@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 from .config import CrawlSettings
 from .crawl import CrawledPage, crawl, select_sources
-from .extractors import GeminiExtractor, HeuristicExtractor
+from .extractors import GeminiExtractor, HeuristicExtractor, ground
 from .schema import PageMetadata, UniversityData
 
 log = logging.getLogger("unidata.pipeline")
@@ -57,8 +57,13 @@ def run(
         core = fallback.extract(sources)
         method = fallback.method
 
-    # --- Load: assemble + validate --------------------------------------
+    # Grounding: drop any value that does not actually appear on the fetched
+    # pages, so nothing hallucinated by the LLM survives into the output.
     used = sources["homepage"] + sources["admissions"] + sources["tuition"]
+    source_text = "\n".join(p.result.text for p in used)
+    core = ground(core, source_text)
+
+    # --- Load: assemble + validate --------------------------------------
     data = UniversityData(page_metadata=_page_metadata(used), **core)
     return PipelineResult(
         data=data,

@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 
 from .discover import rank_links, score_link
 from .fetch import Fetcher, FetchResult
+from .normalize import count_money
 
 log = logging.getLogger("unidata.crawl")
 
@@ -106,9 +107,11 @@ def select_sources(pages: list[CrawledPage], settings) -> dict[str, list[Crawled
         key=lambda p: p.score,
         reverse=True,
     )[: settings.pages_per_category]
+    # For tuition, a page that actually lists dollar figures beats a higher-scoring
+    # landing/calculator page with no numbers, so we rank on (has costs, score).
     tuition = sorted(
         (p for p in pages if p.category == "tuition"),
-        key=lambda p: p.score,
+        key=lambda p: (min(count_money(p.result.text), 8), p.score),
         reverse=True,
     )[: settings.pages_per_category]
     return {

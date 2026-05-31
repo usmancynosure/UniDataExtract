@@ -47,8 +47,11 @@ against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
   (headless Chromium) for JavaScript-heavy pages.
 - **Robust & polite** — honors `robots.txt`, throttles, retries 5xx, stays on-domain
   (incl. subdomains), and **skips authentication-gated pages** three different ways.
-- **Never fabricates** — every field is `Optional` and defaults to `null`; values that can't be
-  read with confidence are left empty rather than guessed.
+- **Grounded, never fabricates** — every field is `Optional` and defaults to `null`, and a
+  **grounding pass drops any LLM value (cost, phone, email, postal) that isn't actually present
+  on the fetched pages**. Tuition-page selection prefers pages that really list dollar figures.
+- **Shareable reports** — generate a self-contained **HTML / Markdown** report per university
+  (`--report html`) with costs grouped by category.
 - **Full provenance** — every page used is recorded with URL, type, depth, HTTP status,
   SHA-1, word count, and relevance score.
 
@@ -62,6 +65,7 @@ python main.py bucknell.edu                      # pretty CLI
 python main.py bucknell.edu salisbury.edu udc.edu --out-dir samples
 python main.py bucknell.edu --json > out.json    # machine-readable
 python main.py bucknell.edu --no-llm             # offline, deterministic
+python main.py bucknell.edu --report html --out-dir samples   # + shareable HTML report
 ```
 
 ### Web interface
@@ -113,9 +117,11 @@ takes over and the pipeline still produces valid output.
 ## ✅ Quality
 
 ```bash
-make test     # offline unit tests for scoring + normalization
-make lint     # ruff
+make check    # ruff + mypy + pytest (the full gate)
+make test     # offline unit tests (scoring, normalization, grounding, report)
 ```
+
+Fully type-checked (`mypy`), `ruff`-clean, and CI runs all three on Python 3.10–3.12.
 
 ## 📁 Project structure
 
@@ -130,9 +136,11 @@ UniDataExtract/
 │   ├── fetch.py             #   HTTP / Playwright, robots, auth detection, cleaning
 │   ├── discover.py          #   link relevance scoring
 │   ├── crawl.py             #   priority BFS (depth ≤ 2) + source selection
-│   ├── extractors.py        #   Gemini + heuristic extractors, shared normalizer
-│   ├── normalize.py         #   money / date / contact parsing
-│   ├── schema.py            #   Pydantic output models
+│   ├── extractors.py        #   Gemini + heuristic extractors, shared normalizer, grounding
+│   ├── normalize.py         #   money / contact / deadline parsing
+│   ├── present.py           #   fee categorization + currency formatting (CLI/UI/report)
+│   ├── report.py            #   standalone HTML / Markdown report generator
+│   ├── schema.py            #   provided Pydantic output models
 │   └── pipeline.py          #   extract → transform → load
 ├── tests/                   # offline unit tests
 ├── samples/                 # example outputs for the 3 reference schools

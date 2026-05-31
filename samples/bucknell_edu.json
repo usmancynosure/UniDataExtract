@@ -4,7 +4,7 @@
     "location": {
       "city": "Lewisburg",
       "state": "PA",
-      "country": null,
+      "country": "USA",
       "postal_code": "17837"
     },
     "contact": {
@@ -19,38 +19,73 @@
       "currency": "USD"
     },
     {
-      "fee_type": "Housing (2026-27, On Campus)",
+      "fee_type": "Housing (on-campus, 2026-27)",
       "cost": 11400,
       "currency": "USD"
     },
     {
-      "fee_type": "Food (2026-27, Meal Plan)",
+      "fee_type": "Approximate Meal Plan Cost (2026-27)",
       "cost": 6980,
       "currency": "USD"
     },
     {
-      "fee_type": "Student Activity Fee (2026-27)",
+      "fee_type": "Activity Fee (2026-27)",
       "cost": 900,
       "currency": "USD"
     },
     {
-      "fee_type": "Books, course materials, supplies and equipment (2026-27)",
+      "fee_type": "Books, course materials, supplies and equipment (allowance, 2026-27)",
       "cost": 900,
       "currency": "USD"
     },
     {
-      "fee_type": "Transportation (2026-27)",
+      "fee_type": "Transportation (allowance, 2026-27)",
       "cost": 800,
       "currency": "USD"
     },
     {
-      "fee_type": "Personal Expenses (2026-27)",
+      "fee_type": "Personal Expenses (allowance, 2026-27)",
       "cost": 2000,
       "currency": "USD"
     },
     {
-      "fee_type": "Total Cost of Attendance (2026-27, Living On Campus)",
+      "fee_type": "Total Cost of Attendance (Living On Campus, 2026-27)",
       "cost": 95580,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Orientation fee (one time only)",
+      "cost": 500,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "International Orientation fee (one time only)",
+      "cost": 750,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Audit fee (per course)",
+      "cost": 300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Credit by examination (per course)",
+      "cost": 500,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Private music lessons (per semester)",
+      "cost": 625,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Single-course rate (part-time students only)",
+      "cost": 6600,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Course overload fee (per credit, beginning Fall 2026)",
+      "cost": 6600,
       "currency": "USD"
     }
   ],
@@ -58,70 +93,70 @@
     {
       "deadline_type": "Early Decision",
       "deadline_date": "Nov. 1, 2025",
-      "notes": "Early Decision I"
+      "notes": "Early Decision I Deadline. Application, scholarship application, CSS Profile and FAFSA due. For first-year applicants."
     },
     {
       "deadline_type": "Early Decision",
       "deadline_date": "Jan. 10, 2026",
-      "notes": "Early Decision II"
+      "notes": "Early Decision II Deadline. Application, scholarship application, CSS Profile and FAFSA due. For first-year applicants."
     },
     {
       "deadline_type": "Regular Decision",
       "deadline_date": "Jan. 10, 2026",
-      "notes": null
+      "notes": "Regular Decision Deadline. Application, scholarship application, CSS Profile and FAFSA due. For first-year applicants."
     },
     {
       "deadline_type": "Transfer Admission",
       "deadline_date": "March 15",
-      "notes": "Fall Semester"
+      "notes": "For Fall semester enrollment."
     },
     {
       "deadline_type": "Transfer Admission",
       "deadline_date": "Nov. 1",
-      "notes": "Spring Semester"
+      "notes": "For Spring semester enrollment."
     }
   ],
   "page_metadata": [
     {
       "url": "https://www.bucknell.edu/",
       "page_title": "Bucknell University | Liberal Arts, Engineering, & Management Colleges",
-      "scraped_at": "2026-05-31T12:08:32.334754+00:00",
+      "scraped_at": "2026-05-31T12:42:24.826106+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
       "page_title": "Admissions Dates & Deadlines",
-      "scraped_at": "2026-05-31T12:08:32.549626+00:00",
+      "scraped_at": "2026-05-31T12:42:25.025019+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/transfer-credit-information",
       "page_title": "Transfer Student Credit Information | Bucknell University",
-      "scraped_at": "2026-05-31T12:08:33.529649+00:00",
+      "scraped_at": "2026-05-31T12:42:26.188057+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants",
       "page_title": "Transfer to Bucknell University | Transfer Student Information",
-      "scraped_at": "2026-05-31T12:08:33.060681+00:00",
+      "scraped_at": "2026-05-31T12:42:25.540921+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
       "page_title": "Tuition, Fees & Financial Aid",
-      "scraped_at": "2026-05-31T12:08:34.571749+00:00",
+      "scraped_at": "2026-05-31T12:42:27.053314+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/information-about-tuition-fees",
       "page_title": "Tuition & Fees",
-      "scraped_at": "2026-05-31T12:08:35.172663+00:00",
+      "scraped_at": "2026-05-31T12:42:27.555304+00:00",
       "status_code": "200"
     },
     {
-      "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/scholarship-programs/pwc-scholarship",
-      "page_title": "PwC Scholarship",
-      "scraped_at": "2026-05-31T12:08:38.594619+00:00",
+      "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/scholarship-programs",
+      "page_title": "Scholarship Programs",
+      "scraped_at": "2026-05-31T12:42:30.755798+00:00",
       "status_code": "200"
     }
   ]

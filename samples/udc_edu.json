@@ -9,7 +9,7 @@
     },
     "contact": {
       "phone": "202-274-5261",
-      "email": "financialaid@udc.edu"
+      "email": null
     }
   },
   "tuition_breakdown": [
@@ -804,43 +804,43 @@
     {
       "url": "https://www.udc.edu/",
       "page_title": "University of the District of Columbia, Washington, DC - HBCU, Land-Grant University | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:02.886519+00:00",
+      "scraped_at": "2026-05-31T12:43:43.061057+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/admission-deadlines",
       "page_title": "Admission Deadlines | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:03.188393+00:00",
+      "scraped_at": "2026-05-31T12:43:43.367629+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/application-requirements",
       "page_title": "Application Requirements | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:03.675163+00:00",
+      "scraped_at": "2026-05-31T12:43:43.865803+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/transfer-students/admissions-transfer-students",
       "page_title": "Step by Step Admissions Guide for Transfer Students | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:05.196869+00:00",
+      "scraped_at": "2026-05-31T12:43:45.371035+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/admissions/tuition-fees",
       "page_title": "Tuition & Fees | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:04.191388+00:00",
+      "scraped_at": "2026-05-31T12:43:44.425063+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/financial-aid/cost-of-attendance",
       "page_title": "Cost of Attendance | Admissions | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:04.687944+00:00",
+      "scraped_at": "2026-05-31T12:43:44.880651+00:00",
       "status_code": "200"
     },
     {
       "url": "https://www.udc.edu/cc/admissions/fees",
       "page_title": "Associates Degree Fees | University of the District of Columbia Community College | University of the District of Columbia",
-      "scraped_at": "2026-05-31T12:10:06.718825+00:00",
+      "scraped_at": "2026-05-31T12:43:46.993326+00:00",
       "status_code": "200"
     }
   ]

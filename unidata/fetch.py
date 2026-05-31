@@ -10,6 +10,7 @@ import hashlib
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from typing import Any
 from urllib import robotparser
 from urllib.parse import urljoin, urlparse
 
@@ -88,8 +89,8 @@ class Fetcher:
         self.base_registrable = registrable_domain(base_host)
         self._last_request_at = 0.0
         self._robots: robotparser.RobotFileParser | None = None
-        self._pw = None  # Playwright context, started lazily
-        self._pw_browser = None
+        self._pw: Any = None  # Playwright context, started lazily (untyped SDK)
+        self._pw_browser: Any = None
 
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": USER_AGENT})
@@ -258,7 +259,7 @@ class Fetcher:
         out: list[tuple[str, str]] = []
         seen: set[str] = set()
         for a in soup.find_all("a", href=True):
-            href = a["href"].strip()
+            href = str(a["href"]).strip()
             if not href or href.startswith(("#", "mailto:", "tel:", "javascript:")):
                 continue
             url = urljoin(base_url, href).split("#")[0].rstrip("/")

@@ -14,6 +14,20 @@ _EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 _POSTAL_RE = re.compile(r"\b\d{5}(?:-\d{4})?\b")
 
 
+def count_money(text: str) -> int:
+    """How many dollar figures a page contains — a signal that it holds real costs."""
+    return len(_MONEY_RE.findall(text))
+
+
+def cost_appears_in(cost: int, text: str) -> bool:
+    """True if a cost figure is actually present in the source text (grounding).
+
+    Checks both the comma-grouped form ("11,466") and the plain form ("11466"),
+    so an LLM-returned number that was never on the page is rejected.
+    """
+    return f"{cost:,}" in text or str(cost) in text.replace(",", "")
+
+
 def to_cost(value) -> int | None:
     """Parse a currency-ish value into a whole-dollar int, or None.
 

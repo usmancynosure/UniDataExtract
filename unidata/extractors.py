@@ -20,6 +20,7 @@ import re
 from bs4 import BeautifulSoup
 
 from .normalize import (
+    cost_appears_in,
     find_email,
     find_phone,
     find_postal_code,
@@ -27,7 +28,7 @@ from .normalize import (
     to_cost,
     to_deadline_type,
 )
-from .schema import AdmissionDeadline, Contact, Location, Overview, TuitionItem
+from .schema import AdmissionDeadline, Contact, DeadlineType, Location, Overview, TuitionItem
 
 log = logging.getLogger("unidata.extract")
 
@@ -75,6 +76,8 @@ def assemble_core(raw: dict) -> dict:
         fee_type = _clean_str(row.get("fee_type"))
         if cost is None or not fee_type:
             continue  # a cost line needs both a label and a number
+        if not 1 <= cost <= 1_000_000:
+            continue  # reject implausible figures (0, negatives, parse errors)
         key = (fee_type.lower(), cost)
         if key in seen_fee:
             continue
@@ -90,7 +93,7 @@ def assemble_core(raw: dict) -> dict:
             continue  # strict: only the three allowed enum values are kept
         deadlines.append(
             AdmissionDeadline(
-                deadline_type=dtype,
+                deadline_type=DeadlineType(dtype),
                 deadline_date=_clean_str(row.get("deadline_date")),
                 notes=_clean_str(row.get("notes")),
             )
@@ -108,6 +111,31 @@ def _clean_str(value) -> str | None:
         return None
     text = str(value).strip()
     return text or None
+
+
+def ground(core: dict, source_text: str) -> dict:
+    """Drop any extracted value that is not actually present in the page text.
+
+    This is the anti-hallucination guard for the LLM path: a tuition cost, phone,
+    email, or postal code that the model invented (and that never appears on the
+    fetched pages) is removed instead of being reported as fact.
+    """
+    digits = re.sub(r"\D", "", source_text)
+    low = source_text.lower()
+
+    core["tuition_breakdown"] = [
+        item for item in core["tuition_breakdown"] if cost_appears_in(item.cost, source_text)
+    ]
+
+    ov = core["overview"]
+    if ov and ov.contact:
+        if ov.contact.phone and re.sub(r"\D", "", ov.contact.phone) not in digits:
+            ov.contact.phone = None
+        if ov.contact.email and ov.contact.email.lower() not in low:
+            ov.contact.email = None
+    if ov and ov.location and ov.location.postal_code and ov.location.postal_code not in source_text:
+        ov.location.postal_code = None
+    return core
 
 
 def _build_document(sources: dict, settings) -> str:
@@ -192,7 +220,7 @@ class GeminiExtractor:
         return assemble_core(raw)
 
 
-def _strip_code_fence(text: str) -> str:
+def _strip_code_fence(text: str | None) -> str:
     text = (text or "").strip()
     if text.startswith("```"):
         text = text.split("\n", 1)[-1]
@@ -240,7 +268,7 @@ def _name_from_homepage(result) -> str | None:
     soup = BeautifulSoup(result.html, "lxml")
     og_site = soup.find("meta", property="og:site_name")
     if og_site and og_site.get("content"):
-        return og_site["content"].strip()
+        return str(og_site["content"]).strip()
     if result.title:
         return result.title.split("|")[-1].split("-")[-1].strip() or result.title
     return None

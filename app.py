@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 
 from unidata.config import CrawlSettings
 from unidata.pipeline import run
+from unidata.present import fee_category, format_cost, tuition_summary
 
 load_dotenv()
 
@@ -105,10 +106,6 @@ st.markdown(
 )
 
 
-def _money(v):
-    return f"${v:,.0f}" if v is not None else "—"
-
-
 def _metric(label: str, value, accent: bool = False) -> str:
     cls = "value accent" if accent else "value"
     return f'<div class="metric"><div class="label">{label}</div><div class="{cls}">{value}</div></div>'
@@ -157,12 +154,15 @@ if go and domain.strip():
     ov = data.overview
     st.markdown(f"## {(ov.university_name if ov else None) or result.domain}")
 
+    summary = tuition_summary(data.tuition_breakdown)
+    lowest = f"${summary['lowest']:,}" if summary["lowest"] is not None else "—"
+    highest = f"${summary['highest']:,}" if summary["highest"] is not None else "—"
     cols = st.columns(4)
     cards = [
-        _metric("Method", result.method.capitalize(), accent=result.method == "gemini"),
-        _metric("Tuition rows", len(data.tuition_breakdown), accent=True),
-        _metric("Deadlines", len(data.admission_deadlines), accent=True),
-        _metric("Sources", len(data.page_metadata)),
+        _metric("Extractor", result.method.capitalize(), accent=result.method == "gemini"),
+        _metric("Fee items", summary["count"], accent=True),
+        _metric("Lowest fee", lowest, accent=True),
+        _metric("Highest fee", highest, accent=True),
     ]
     for col, html in zip(cols, cards, strict=False):
         col.markdown(html, unsafe_allow_html=True)
@@ -204,13 +204,20 @@ if go and domain.strip():
 
     st.markdown('<div class="sec-title">Tuition / Cost breakdown</div>', unsafe_allow_html=True)
     if data.tuition_breakdown:
-        st.dataframe(
-            [
-                {"Fee type": t.fee_type or "—", "Cost": _money(t.cost), "Currency": t.currency or "USD"}
+        rows = sorted(
+            (
+                {"Category": fee_category(t.fee_type), "Fee type": t.fee_type or "—", "Cost": format_cost(t)}
                 for t in data.tuition_breakdown
-            ],
+            ),
+            key=lambda r: r["Category"],
+        )
+        cats = sorted({r["Category"] for r in rows})
+        chosen = st.multiselect("Filter by category", cats, default=cats)
+        st.dataframe(
+            [r for r in rows if r["Category"] in chosen],
             hide_index=True,
             use_container_width=True,
+            column_config={"Cost": st.column_config.TextColumn(width="small")},
         )
     else:
         st.info("No tuition figures extracted.")
@@ -225,8 +232,19 @@ if go and domain.strip():
         use_container_width=True,
     )
 
+    from unidata.report import to_html
+
     payload = data.model_dump_json(indent=2)
-    st.download_button("⬇ Download JSON", payload, file_name=f"{domain.replace('.', '_')}.json")
+    slug = domain.replace(".", "_")
+    dl1, dl2 = st.columns(2)
+    dl1.download_button("⬇ Download JSON", payload, file_name=f"{slug}.json", use_container_width=True)
+    dl2.download_button(
+        "⬇ Download HTML report",
+        to_html(data, domain),
+        file_name=f"{slug}.html",
+        mime="text/html",
+        use_container_width=True,
+    )
     with st.expander("Raw JSON"):
         st.code(payload, language="json")
 else:

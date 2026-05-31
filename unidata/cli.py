@@ -40,6 +40,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--json", action="store_true", help="Print raw JSON only (machine-readable)")
     p.add_argument("--no-llm", action="store_true", help="Force the deterministic extractor")
     p.add_argument("--render", action="store_true", help="Fetch via headless Chromium (Playwright)")
+    p.add_argument("--report", choices=("html", "md"), help="Also write a shareable report file")
     p.add_argument("--max-depth", type=int, default=2, help="Max crawl depth (default 2)")
     p.add_argument("--max-pages", type=int, default=30, help="Max pages fetched per site")
     p.add_argument("-v", "--verbose", action="store_true", help="Verbose crawl logging")
@@ -86,7 +87,19 @@ def main(argv: list[str] | None = None) -> int:
         else:
             render_result(console, result)
 
+        if args.report:
+            _write_report(console, result, args.report, out_dir, domain)
+
     return exit_code
+
+
+def _write_report(console, result, fmt: str, out_dir, domain: str) -> None:
+    from .report import to_html, to_markdown
+
+    content = to_html(result.data, domain) if fmt == "html" else to_markdown(result.data, domain)
+    path = (out_dir or Path(".")) / f"{_slug(domain)}.{fmt}"
+    path.write_text(content)
+    console.print(f"[green]✓[/green] report → {path}")
 
 
 def _run_one(console: Console, domain: str, settings: CrawlSettings, use_llm: bool, quiet: bool):
