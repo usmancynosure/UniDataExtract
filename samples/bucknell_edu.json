@@ -1,168 +1,128 @@
 {
-  "name": "Bucknell University",
-  "domain": "bucknell.edu",
-  "homepage_url": "https://bucknell.edu/",
-  "overview": "Bucknell University offers a unique approach to the liberal arts, providing limitless opportunities for interdisciplinary learning across its three colleges: Arts & Sciences, Engineering, and Management.",
-  "contact": {
-    "phone": "570-577-3000",
-    "email": "admissions@bucknell.edu",
-    "mailing_address": "Office of Admissions, One Dent Drive, Lewisburg, PA 17837",
-    "admissions_office_url": "https://www.bucknell.edu/admissions-aid/"
+  "overview": {
+    "university_name": "Bucknell University",
+    "location": {
+      "city": "Lewisburg",
+      "state": "PA",
+      "country": null,
+      "postal_code": "17837"
+    },
+    "contact": {
+      "phone": "570-577-3000",
+      "email": "admissions@bucknell.edu"
+    }
   },
-  "tuition": [
+  "tuition_breakdown": [
     {
-      "student_type": "undergraduate",
-      "residency": null,
-      "academic_year": "2026-2027",
-      "tuition": 72600.0,
-      "fees": 900.0,
-      "room_and_board": 18380.0,
-      "books_and_supplies": 900.0,
-      "total_cost_of_attendance": 95580.0,
-      "currency": "USD",
-      "note": "Living On Campus"
+      "fee_type": "Tuition (2026-27)",
+      "cost": 72600,
+      "currency": "USD"
     },
     {
-      "student_type": "undergraduate",
-      "residency": null,
-      "academic_year": "2026-2027",
-      "tuition": 72600.0,
-      "fees": 900.0,
-      "room_and_board": 18380.0,
-      "books_and_supplies": 900.0,
-      "total_cost_of_attendance": 95580.0,
-      "currency": "USD",
-      "note": "Living Off Campus"
+      "fee_type": "Housing (2026-27, On Campus)",
+      "cost": 11400,
+      "currency": "USD"
     },
     {
-      "student_type": "undergraduate",
-      "residency": null,
-      "academic_year": "2026-2027",
-      "tuition": 72600.0,
-      "fees": 900.0,
-      "room_and_board": 4000.0,
-      "books_and_supplies": 900.0,
-      "total_cost_of_attendance": 81200.0,
-      "currency": "USD",
-      "note": "Living with Family"
+      "fee_type": "Food (2026-27, Meal Plan)",
+      "cost": 6980,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Student Activity Fee (2026-27)",
+      "cost": 900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, course materials, supplies and equipment (2026-27)",
+      "cost": 900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Transportation (2026-27)",
+      "cost": 800,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal Expenses (2026-27)",
+      "cost": 2000,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (2026-27, Living On Campus)",
+      "cost": 95580,
+      "currency": "USD"
     }
   ],
   "admission_deadlines": [
     {
-      "name": "Early Decision I",
-      "applicant_type": "first_year",
-      "deadline": "2025-11-01",
-      "deadline_text": "Nov. 1, 2025*",
-      "notification_date": null
+      "deadline_type": "Early Decision",
+      "deadline_date": "Nov. 1, 2025",
+      "notes": "Early Decision I"
     },
     {
-      "name": "Early Decision II",
-      "applicant_type": "first_year",
-      "deadline": "2026-01-10",
-      "deadline_text": "Jan. 10, 2026*",
-      "notification_date": null
+      "deadline_type": "Early Decision",
+      "deadline_date": "Jan. 10, 2026",
+      "notes": "Early Decision II"
     },
     {
-      "name": "Regular Decision",
-      "applicant_type": "first_year",
-      "deadline": "2026-01-10",
-      "deadline_text": "Jan. 10, 2026*",
-      "notification_date": null
+      "deadline_type": "Regular Decision",
+      "deadline_date": "Jan. 10, 2026",
+      "notes": null
     },
     {
-      "name": "Fall Transfer",
-      "applicant_type": "transfer",
-      "deadline": null,
-      "deadline_text": "March 15",
-      "notification_date": null
+      "deadline_type": "Transfer Admission",
+      "deadline_date": "March 15",
+      "notes": "Fall Semester"
     },
     {
-      "name": "Spring Transfer",
-      "applicant_type": "transfer",
-      "deadline": null,
-      "deadline_text": "Nov. 1",
-      "notification_date": null
+      "deadline_type": "Transfer Admission",
+      "deadline_date": "Nov. 1",
+      "notes": "Spring Semester"
     }
   ],
-  "sources": [
+  "page_metadata": [
     {
       "url": "https://www.bucknell.edu/",
-      "title": "Bucknell University | Liberal Arts, Engineering, & Management Colleges",
-      "page_type": "homepage",
-      "depth": 0,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:37:59.121043Z",
-      "content_sha1": "8e3d7785969763c2c962e39fac490690ee80a981",
-      "word_count": 631,
-      "relevance_score": null
+      "page_title": "Bucknell University | Liberal Arts, Engineering, & Management Colleges",
+      "scraped_at": "2026-05-31T12:08:32.334754+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/admissions-dates-deadlines",
-      "title": "Admissions Dates & Deadlines",
-      "page_type": "admissions",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:37:59.357140Z",
-      "content_sha1": "890ad5b626511af8949accbf0dc5def8fe58cc98",
-      "word_count": 870,
-      "relevance_score": 21.2
+      "page_title": "Admissions Dates & Deadlines",
+      "scraped_at": "2026-05-31T12:08:32.549626+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/transfer-credit-information",
-      "title": "Transfer Student Credit Information | Bucknell University",
-      "page_type": "admissions",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:38:00.350264Z",
-      "content_sha1": "a098d4a87459bc6829deba47dbbe90855aba630d",
-      "word_count": 690,
-      "relevance_score": 20.05
+      "page_title": "Transfer Student Credit Information | Bucknell University",
+      "scraped_at": "2026-05-31T12:08:33.529649+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/apply-bucknell/undergraduate-admission-requirements/information-transfer-applicants",
-      "title": "Transfer to Bucknell University | Transfer Student Information",
-      "page_type": "admissions",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:37:59.890160Z",
-      "content_sha1": "b9dc6c9ed94f9b4226ba47d9743242eaaff71416",
-      "word_count": 1871,
-      "relevance_score": 19.05
+      "page_title": "Transfer to Bucknell University | Transfer Student Information",
+      "scraped_at": "2026-05-31T12:08:33.060681+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
-      "title": "Tuition, Fees & Financial Aid",
-      "page_type": "tuition",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:38:01.408039Z",
-      "content_sha1": "7c8cda945fc4639987762b742f9b43b1e059b0c2",
-      "word_count": 1094,
-      "relevance_score": 16.65
+      "page_title": "Tuition, Fees & Financial Aid",
+      "scraped_at": "2026-05-31T12:08:34.571749+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/information-about-tuition-fees",
-      "title": "Tuition & Fees",
-      "page_type": "tuition",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:38:01.894769Z",
-      "content_sha1": "ad95dd98ba19f6a976caa108dc63ddaabe0fa394",
-      "word_count": 1650,
-      "relevance_score": 16.35
+      "page_title": "Tuition & Fees",
+      "scraped_at": "2026-05-31T12:08:35.172663+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid/scholarship-programs/pwc-scholarship",
-      "title": "PwC Scholarship",
-      "page_type": "tuition",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:38:05.403618Z",
-      "content_sha1": "1956d5af3c23874510fcb6a3ba26340db22a4ef0",
-      "word_count": 367,
-      "relevance_score": 14.05
+      "page_title": "PwC Scholarship",
+      "scraped_at": "2026-05-31T12:08:38.594619+00:00",
+      "status_code": "200"
     }
-  ],
-  "extraction_method": "gemini",
-  "extracted_at": "2026-05-31T11:38:37.446290Z"
+  ]
 }

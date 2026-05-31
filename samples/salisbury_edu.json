@@ -1,204 +1,273 @@
 {
-  "name": "Salisbury University",
-  "domain": "salisbury.edu",
-  "homepage_url": "https://salisbury.edu/",
-  "overview": "Salisbury University is a right-size school with a powerful sense of community, where professors are deeply invested in student success. It offers countless opportunities for research, travel abroad, internships, and hands-on learning, preparing students for the future.",
-  "contact": {
-    "phone": "410-543-6161",
-    "email": "admissions@salisbury.edu",
-    "mailing_address": "Office of Admissions 1200 Camden Avenue Salisbury, MD 21801",
-    "admissions_office_url": "https://www.salisbury.edu/admissions/"
+  "overview": {
+    "university_name": "Salisbury University",
+    "location": {
+      "city": "Salisbury",
+      "state": "Maryland",
+      "country": "USA",
+      "postal_code": null
+    },
+    "contact": {
+      "phone": "410-543-6161",
+      "email": "admissions@salisbury.edu"
+    }
   },
-  "tuition": [
+  "tuition_breakdown": [
     {
-      "student_type": "undergraduate",
-      "residency": "international",
-      "academic_year": null,
-      "tuition": 4112.0,
-      "fees": null,
-      "room_and_board": 6950.0,
-      "books_and_supplies": 350.0,
-      "total_cost_of_attendance": 13722.0,
-      "currency": "USD",
-      "note": "Per Semester. Tuition & Fees combined. Includes Medical Insurance ($360) and Personal Expenses ($1,950)."
+      "fee_type": "Tuition and Mandatory Fees (Undergraduate, Maryland Residents, Annual)",
+      "cost": 11466,
+      "currency": "USD"
     },
     {
-      "student_type": "undergraduate",
-      "residency": "in_state",
-      "academic_year": "2026-2027",
-      "tuition": 11466.0,
-      "fees": null,
-      "room_and_board": 14518.0,
-      "books_and_supplies": 1300.0,
-      "total_cost_of_attendance": 31496.0,
-      "currency": "USD",
-      "note": "Annual estimated cost for full-time, on-campus students. Tuition and Mandatory Fees combined. Housing based on Double Occupancy. Food based on 'All Access' meal plan. Includes Personal/Trans/Misc ($3,900) and Loan Fee Allowance ($312) in total cost."
+      "fee_type": "Housing (Undergraduate, Maryland Residents, Annual)",
+      "cost": 8150,
+      "currency": "USD"
     },
     {
-      "student_type": "undergraduate",
-      "residency": "out_of_state",
-      "academic_year": "2026-2027",
-      "tuition": 23590.0,
-      "fees": null,
-      "room_and_board": 14518.0,
-      "books_and_supplies": 1300.0,
-      "total_cost_of_attendance": 43620.0,
-      "currency": "USD",
-      "note": "Annual estimated cost for full-time, on-campus students. Tuition and Mandatory Fees combined. Housing based on Double Occupancy. Food based on 'All Access' meal plan. Includes Personal/Trans/Misc ($3,900) and Loan Fee Allowance ($312) in total cost."
+      "fee_type": "Food (Undergraduate, Maryland Residents, Annual)",
+      "cost": 6368,
+      "currency": "USD"
     },
     {
-      "student_type": "graduate",
-      "residency": "in_state",
-      "academic_year": "2026-2027",
-      "tuition": 10476.0,
-      "fees": null,
-      "room_and_board": 14518.0,
-      "books_and_supplies": 1300.0,
-      "total_cost_of_attendance": 30520.0,
-      "currency": "USD",
-      "note": "Annual estimated cost for 9 credits per semester. Tuition and Mandatory Fees combined. Includes Personal Expenses and Transportation Allowance ($3,900) and Loan Fee Allowance ($326) in total cost."
+      "fee_type": "Direct Costs (Undergraduate, Maryland Residents, Annual)",
+      "cost": 25984,
+      "currency": "USD"
     },
     {
-      "student_type": "graduate",
-      "residency": "out_of_state",
-      "academic_year": "2026-2027",
-      "tuition": 17388.0,
-      "fees": null,
-      "room_and_board": 14518.0,
-      "books_and_supplies": 1300.0,
-      "total_cost_of_attendance": 37432.0,
-      "currency": "USD",
-      "note": "Annual estimated cost for 9 credits per semester. Tuition and Mandatory Fees combined. Includes Personal Expenses and Transportation Allowance ($3,900) and Loan Fee Allowance ($326) in total cost."
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Undergraduate, Maryland Residents, Annual)",
+      "cost": 1300,
+      "currency": "USD"
     },
     {
-      "student_type": "graduate",
-      "residency": "out_of_state",
-      "academic_year": "2026-2027",
-      "tuition": 12204.0,
-      "fees": null,
-      "room_and_board": 14518.0,
-      "books_and_supplies": 1300.0,
-      "total_cost_of_attendance": 32248.0,
-      "currency": "USD",
-      "note": "Annual estimated cost for 9 credits per semester. Tuition and Mandatory Fees combined. Regional Hagerstown rate. Includes Personal Expenses and Transportation Allowance ($3,900) and Loan Fee Allowance ($326) in total cost."
+      "fee_type": "Personal/Trans/Misc. (Undergraduate, Maryland Residents, Annual)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Undergraduate, Maryland Residents, Annual)",
+      "cost": 312,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Indirect Costs (Undergraduate, Maryland Residents, Annual)",
+      "cost": 5512,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Undergraduate, Maryland Residents, Annual)",
+      "cost": 31496,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition and Mandatory Fees (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 23590,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Housing (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Direct Costs (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 38108,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal/Trans/Misc. (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 312,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Indirect Costs (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 5512,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Undergraduate, Out-of-State Residents, Annual)",
+      "cost": 43620,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition and Mandatory Fees (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 10476,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Housing Cost Allowance (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food Allowance (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal Expenses and Transportation Allowance (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 326,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Graduate, Maryland Residents, Annual, 9 Credits per semester)",
+      "cost": 30520,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition and Mandatory Fees (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 17388,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Housing Cost Allowance (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food Allowance (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal Expenses and Transportation Allowance (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 326,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Graduate, Non-Resident, Annual, 9 Credits per semester)",
+      "cost": 37432,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Tuition and Mandatory Fees (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 12204,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Housing Cost Allowance (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 8150,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Food Allowance (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 6368,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Books, Supplies, Course Materials & Equipment (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 1300,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Personal Expenses and Transportation Allowance (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 3900,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Loan Fee Allowance (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 326,
+      "currency": "USD"
+    },
+    {
+      "fee_type": "Total Cost of Attendance (Graduate, Non-Resident Regional Hagerstown, Annual, 9 Credits per semester)",
+      "cost": 32248,
+      "currency": "USD"
     }
   ],
   "admission_deadlines": [
     {
-      "name": "Regular Decision",
-      "applicant_type": "first_year",
-      "deadline": null,
-      "deadline_text": "January 15",
-      "notification_date": null
+      "deadline_type": "Early Decision",
+      "deadline_date": "November 15",
+      "notes": "Binding agreement for high school seniors. Decisions by December 15, $300 deposit by January 15."
     },
     {
-      "name": "Early Decision",
-      "applicant_type": "first_year",
-      "deadline": null,
-      "deadline_text": "November 15",
-      "notification_date": null
+      "deadline_type": "Regular Decision",
+      "deadline_date": "January 15",
+      "notes": "Recommended deadline for high school seniors. Candidates notified by March 15, $300 deposit by May 1. Applications received after this date will be considered on a space-available basis."
     },
     {
-      "name": "Early Action",
-      "applicant_type": "first_year",
-      "deadline": null,
-      "deadline_text": "December 1",
-      "notification_date": null
-    },
-    {
-      "name": "Bachelor of Fine Arts Portfolio Review",
-      "applicant_type": "first_year",
-      "deadline": null,
-      "deadline_text": "December 1",
-      "notification_date": null
-    },
-    {
-      "name": "Bachelor of Fine Arts Portfolio Review",
-      "applicant_type": "first_year",
-      "deadline": null,
-      "deadline_text": "March 1",
-      "notification_date": null
+      "deadline_type": "Transfer Admission",
+      "deadline_date": null,
+      "notes": "Rolling basis, provided files are complete and space is available."
     }
   ],
-  "sources": [
+  "page_metadata": [
     {
       "url": "https://www.salisbury.edu/",
-      "title": "Salisbury University, Universities in Maryland",
-      "page_type": "homepage",
-      "depth": 0,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:00.063050Z",
-      "content_sha1": "561a9f73bbf4240cc76b84673e3c258ed090d281",
-      "word_count": 683,
-      "relevance_score": null
+      "page_title": "Salisbury University, Universities in Maryland",
+      "scraped_at": "2026-05-31T12:09:07.786535+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/transfer-students/admissions-requirements.aspx",
-      "title": "Admissions Requirements For Transfer Applicants | Salisbury University",
-      "page_type": "admissions",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:02.925697Z",
-      "content_sha1": "62d168c32f53acc6b588d363055b5fd2c261a29d",
-      "word_count": 370,
-      "relevance_score": 15.9
+      "page_title": "Admissions Requirements For Transfer Applicants | Salisbury University",
+      "scraped_at": "2026-05-31T12:09:10.904505+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/first-year-students/first-year-application.aspx",
-      "title": "First Year Application Process | Salisbury University",
-      "page_type": "admissions",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:01.920305Z",
-      "content_sha1": "d7cdb7fcaae9d63008781dbc22b2b3841fe25a7c",
-      "word_count": 894,
-      "relevance_score": 14.35
+      "page_title": "First Year Application Process | Salisbury University",
+      "scraped_at": "2026-05-31T12:09:10.046392+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/how-to-apply.aspx",
-      "title": "How to Apply to Salisbury University",
-      "page_type": "admissions",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:00.918193Z",
-      "content_sha1": "be332180902176e1365c38f13bd0c52362991d97",
-      "word_count": 764,
-      "relevance_score": 13.8
+      "page_title": "How to Apply to Salisbury University",
+      "scraped_at": "2026-05-31T12:09:08.927845+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/net-price-calculator.aspx",
-      "title": "Net Price Calculator | Salisbury University",
-      "page_type": "tuition",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:00.403490Z",
-      "content_sha1": "5cf8a301fbe4f7817e9ae7ff21282892fd3f9fed",
-      "word_count": 166,
-      "relevance_score": 17.4
+      "page_title": "Net Price Calculator | Salisbury University",
+      "scraped_at": "2026-05-31T12:09:08.123999+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/international-students/tuition-fees.aspx",
-      "title": "International Admissions Tuition & Fees | Salisbury University",
-      "page_type": "tuition",
-      "depth": 2,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:12.031948Z",
-      "content_sha1": "0bfecb8119eb4b6b0f8d5e1fb0410425492a5f58",
-      "word_count": 135,
-      "relevance_score": 12.9
+      "page_title": "International Admissions Tuition & Fees | Salisbury University",
+      "scraped_at": "2026-05-31T12:09:21.426998+00:00",
+      "status_code": "200"
     },
     {
       "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
-      "title": "Salisbury University Cost of Attendance | Salisbury University",
-      "page_type": "tuition",
-      "depth": 1,
-      "http_status": 200,
-      "fetched_at": "2026-05-31T11:39:06.125020Z",
-      "content_sha1": "45799a1c9233364cc6454fb4cea02ae65549828a",
-      "word_count": 874,
-      "relevance_score": 12.25
+      "page_title": "Salisbury University Cost of Attendance | Salisbury University",
+      "scraped_at": "2026-05-31T12:09:15.175557+00:00",
+      "status_code": "200"
     }
-  ],
-  "extraction_method": "gemini",
-  "extracted_at": "2026-05-31T11:39:40.963196Z"
+  ]
 }

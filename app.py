@@ -19,41 +19,121 @@ from unidata.pipeline import run
 
 load_dotenv()
 
-st.set_page_config(page_title="UniDataExtract", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="UniCompanion", page_icon="🎓", layout="wide")
+
+# --------------------------------------------------------------------------
+# Styling — a light, sky-blue, product-grade look
+# --------------------------------------------------------------------------
+st.markdown(
+    """
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+      html, body, [class*="css"], .stMarkdown, .stMetric { font-family: 'Inter', sans-serif; }
+      .stApp { background: #F1F5F9; }
+      .block-container { padding-top: 1.5rem; max-width: 1180px; }
+
+      /* Hero */
+      .hero {
+        background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 55%, #0369A1 100%);
+        border-radius: 18px; padding: 2rem 2.2rem; color: #fff;
+        box-shadow: 0 12px 30px rgba(2,132,199,0.28); margin-bottom: 1.4rem;
+      }
+      .hero h1 { font-size: 2rem; font-weight: 800; margin: 0; letter-spacing:-.5px; }
+      .hero p  { margin: .35rem 0 0; opacity: .92; font-size: 1.02rem; }
+      .hero .pills { margin-top: .9rem; }
+      .pill {
+        display:inline-block; background: rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.28);
+        color:#fff; padding:.18rem .7rem; border-radius:999px; font-size:.74rem; font-weight:600;
+        margin-right:.4rem; backdrop-filter: blur(4px);
+      }
+
+      /* Cards */
+      .card {
+        background:#fff; border:1px solid #E2E8F0; border-radius:14px; padding:1.1rem 1.25rem;
+        box-shadow:0 1px 3px rgba(15,23,42,.05); height:100%;
+      }
+      .card h3 {
+        font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:#64748B;
+        font-weight:700; margin:0 0 .7rem;
+      }
+      .metric { background:#fff; border:1px solid #E2E8F0; border-radius:14px; padding:1rem 1.1rem;
+                box-shadow:0 1px 3px rgba(15,23,42,.05); }
+      .metric .label { font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:#64748B; font-weight:700; }
+      .metric .value { font-size:1.7rem; font-weight:800; color:#0F172A; line-height:1.1; margin-top:.25rem; }
+      .metric .value.accent { color:#0284C7; }
+
+      .kv { display:flex; justify-content:space-between; gap:1rem; padding:.42rem 0; border-bottom:1px solid #F1F5F9; }
+      .kv:last-child { border-bottom:none; }
+      .kv .k { color:#64748B; font-weight:600; font-size:.86rem; }
+      .kv .v { color:#0F172A; font-size:.9rem; text-align:right; word-break:break-word; }
+
+      .sec-title { font-size:1.05rem; font-weight:700; color:#0F172A; margin:1.4rem 0 .6rem; }
+
+      /* Buttons */
+      .stButton button {
+        background: linear-gradient(135deg,#0EA5E9,#0284C7); color:#fff; border:none;
+        border-radius:10px; font-weight:700; padding:.55rem 1rem; box-shadow:0 4px 12px rgba(2,132,199,.3);
+      }
+      .stButton button:hover { filter:brightness(1.05); color:#fff; }
+
+      /* Tables */
+      [data-testid="stDataFrame"] { border:1px solid #E2E8F0; border-radius:12px; overflow:hidden; }
+
+      [data-testid="stSidebar"] { background:#fff; border-right:1px solid #E2E8F0; }
+      [data-testid="stSidebar"] h2 { color:#0F172A; }
+      footer, #MainMenu { visibility:hidden; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown(
     """
-    <div style="padding:1.2rem 0 0.4rem">
-      <span style="font-size:2.1rem;font-weight:800;
-            background:linear-gradient(90deg,#7c3aed,#db2777);
-            -webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-        🎓 UniDataExtract
-      </span>
-      <div style="color:#6b7280;margin-top:-2px">
-        Admissions &amp; Tuition ETL — a university domain in, structured data out.
+    <div class="hero">
+      <h1>🎓 UniCompanion</h1>
+      <p>Your companion for university admissions &amp; tuition — one domain in, structured data out.</p>
+      <div class="pills">
+        <span class="pill">Auto page discovery</span>
+        <span class="pill">Crawl depth ≤ 2</span>
+        <span class="pill">Gemini + heuristic</span>
+        <span class="pill">Pydantic-validated</span>
       </div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-with st.sidebar:
-    st.header("Run")
-    domain = st.text_input("University domain", value="bucknell.edu", placeholder="e.g. salisbury.edu")
-    has_key = bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
-    use_llm = st.toggle("Gemini extraction", value=has_key, help="Falls back to heuristics if off or no key")
-    if use_llm and not has_key:
-        st.warning("No GEMINI_API_KEY found — will use the heuristic extractor.", icon="⚠️")
-    render = st.toggle("JavaScript rendering (Playwright)", value=False)
-    max_pages = st.slider("Max pages", 6, 40, 24)
-    max_depth = st.slider("Max crawl depth", 1, 2, 2)
-    go = st.button("Extract", type="primary", use_container_width=True)
-
 
 def _money(v):
     return f"${v:,.0f}" if v is not None else "—"
 
 
+def _metric(label: str, value, accent: bool = False) -> str:
+    cls = "value accent" if accent else "value"
+    return f'<div class="metric"><div class="label">{label}</div><div class="{cls}">{value}</div></div>'
+
+
+# --------------------------------------------------------------------------
+# Sidebar controls
+# --------------------------------------------------------------------------
+with st.sidebar:
+    st.header("Run extraction")
+    domain = st.text_input("University domain", value="bucknell.edu", placeholder="e.g. salisbury.edu")
+    has_key = bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
+    use_llm = st.toggle("Gemini extraction", value=has_key, help="Falls back to heuristics if off or no key")
+    if use_llm and not has_key:
+        st.warning("No GEMINI_API_KEY found — using the heuristic extractor.", icon="⚠️")
+    render = st.toggle("JavaScript rendering (Playwright)", value=False)
+    max_pages = st.slider("Max pages", 6, 40, 24)
+    max_depth = st.slider("Max crawl depth", 1, 2, 2)
+    go = st.button("Extract", type="primary", use_container_width=True)
+    st.caption("Discovery is deterministic — the LLM only structures already-fetched text.")
+
+
+# --------------------------------------------------------------------------
+# Main
+# --------------------------------------------------------------------------
 if go and domain.strip():
     settings = CrawlSettings(max_pages=max_pages, max_depth=max_depth, render=render)
 
@@ -66,37 +146,53 @@ if go and domain.strip():
             log.markdown("  \n".join(seen[-12:]))
 
         try:
-            data = run(domain.strip(), settings=settings, use_llm=use_llm, on_page=on_page)
-            status.update(label=f"Done — {len(data.sources)} pages used", state="complete")
+            result = run(domain.strip(), settings=settings, use_llm=use_llm, on_page=on_page)
+            status.update(label=f"Done — {len(result.data.page_metadata)} pages used", state="complete")
         except Exception as exc:  # noqa: BLE001 - surface any failure to the UI
             status.update(label="Failed", state="error")
             st.error(str(exc))
             st.stop()
 
-    # -- headline metrics ------------------------------------------------
-    st.subheader(data.name or data.domain)
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Method", data.extraction_method)
-    c2.metric("Tuition rows", len(data.tuition))
-    c3.metric("Deadlines", len(data.admission_deadlines))
-    c4.metric("Sources", len(data.sources))
+    data = result.data
+    ov = data.overview
+    st.markdown(f"## {(ov.university_name if ov else None) or result.domain}")
 
-    if data.overview:
-        st.caption(data.overview)
+    cols = st.columns(4)
+    cards = [
+        _metric("Method", result.method.capitalize(), accent=result.method == "gemini"),
+        _metric("Tuition rows", len(data.tuition_breakdown), accent=True),
+        _metric("Deadlines", len(data.admission_deadlines), accent=True),
+        _metric("Sources", len(data.page_metadata)),
+    ]
+    for col, html in zip(cols, cards, strict=False):
+        col.markdown(html, unsafe_allow_html=True)
 
-    left, right = st.columns(2)
+    left, right = st.columns([1, 1])
     with left:
-        st.markdown("**Contact**")
-        st.table({k: [v or "—"] for k, v in data.contact.model_dump().items()})
+        loc = ov.location if ov else None
+        con = ov.contact if ov else None
+        place = ", ".join(x for x in [
+            getattr(loc, "city", None), getattr(loc, "state", None),
+            getattr(loc, "postal_code", None), getattr(loc, "country", None),
+        ] if x) if loc else None
+        rows = "".join(
+            f'<div class="kv"><span class="k">{k}</span><span class="v">{v or "—"}</span></div>'
+            for k, v in [
+                ("Location", place),
+                ("Phone", getattr(con, "phone", None)),
+                ("Email", getattr(con, "email", None)),
+            ]
+        )
+        st.markdown(f'<div class="card"><h3>Overview</h3>{rows}</div>', unsafe_allow_html=True)
     with right:
-        st.markdown("**Admission deadlines**")
+        st.markdown('<div class="sec-title">Admission deadlines</div>', unsafe_allow_html=True)
         if data.admission_deadlines:
             st.dataframe(
                 [
                     {
-                        "Name": d.name,
-                        "Applicant": d.applicant_type or "—",
-                        "Date": d.deadline.isoformat() if d.deadline else (d.deadline_text or "—"),
+                        "Type": d.deadline_type.value if d.deadline_type else "—",
+                        "Date": d.deadline_date or "—",
+                        "Notes": d.notes or "—",
                     }
                     for d in data.admission_deadlines
                 ],
@@ -106,20 +202,12 @@ if go and domain.strip():
         else:
             st.info("No deadlines extracted.")
 
-    st.markdown("**Tuition / Cost**")
-    if data.tuition:
+    st.markdown('<div class="sec-title">Tuition / Cost breakdown</div>', unsafe_allow_html=True)
+    if data.tuition_breakdown:
         st.dataframe(
             [
-                {
-                    "Student": t.student_type or "—",
-                    "Residency": t.residency or "—",
-                    "Year": t.academic_year or "—",
-                    "Tuition": _money(t.tuition),
-                    "Fees": _money(t.fees),
-                    "Room & Board": _money(t.room_and_board),
-                    "Total": _money(t.total_cost_of_attendance),
-                }
-                for t in data.tuition
+                {"Fee type": t.fee_type or "—", "Cost": _money(t.cost), "Currency": t.currency or "USD"}
+                for t in data.tuition_breakdown
             ],
             hide_index=True,
             use_container_width=True,
@@ -127,17 +215,11 @@ if go and domain.strip():
     else:
         st.info("No tuition figures extracted.")
 
-    st.markdown("**Sources**")
+    st.markdown('<div class="sec-title">Sources (page metadata)</div>', unsafe_allow_html=True)
     st.dataframe(
         [
-            {
-                "Type": s.page_type,
-                "Depth": s.depth,
-                "Score": s.relevance_score,
-                "Status": s.http_status,
-                "URL": s.url,
-            }
-            for s in data.sources
+            {"Status": s.status_code, "Page title": s.page_title, "URL": s.url}
+            for s in data.page_metadata
         ],
         hide_index=True,
         use_container_width=True,
@@ -148,4 +230,10 @@ if go and domain.strip():
     with st.expander("Raw JSON"):
         st.code(payload, language="json")
 else:
-    st.info("Enter a university domain in the sidebar and click **Extract**.")
+    st.markdown(
+        '<div class="card"><h3>Get started</h3>'
+        '<p style="color:#475569;margin:.2rem 0 0">Enter a university domain in the sidebar '
+        'and click <b>Extract</b>. The pipeline discovers the Admissions and Tuition pages on '
+        'its own, then returns clean, validated data.</p></div>',
+        unsafe_allow_html=True,
+    )

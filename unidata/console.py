@@ -11,108 +11,91 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-from .schema import UniversityData
-
-# Per-category accent colors, reused across the progress view and result tables.
-CATEGORY_STYLE = {
-    "homepage": "white",
-    "admissions": "cyan",
-    "tuition": "green",
-    "other": "dim",
-}
+from .pipeline import PipelineResult
 
 
 def banner() -> Panel:
-    title = Text("UniDataExtract", style="bold magenta")
+    title = Text("UniCompanion", style="bold magenta")
     subtitle = Text("Admissions & Tuition ETL — domain in, structured data out", style="dim")
     return Panel(Text.assemble(title, "\n", subtitle), border_style="magenta", expand=False)
 
 
-def _money(value: float | None) -> str:
-    return f"${value:,.0f}" if value is not None else "[dim]—[/dim]"
+def _money(item) -> str:
+    if item.cost is None:
+        return "[dim]—[/dim]"
+    return f"{item.currency or 'USD'} {item.cost:,}"
 
 
 def _or_dash(value) -> str:
     return str(value) if value not in (None, "") else "[dim]—[/dim]"
 
 
-def render_result(console: Console, data: UniversityData) -> None:
-    """Print a full, human-readable summary of one UniversityData object."""
-    method_color = "green" if data.extraction_method == "gemini" else "yellow"
+def render_result(console: Console, result: PipelineResult) -> None:
+    """Print a full, human-readable summary of one PipelineResult."""
+    data = result.data
+    ov = data.overview
+    method_color = "green" if result.method == "gemini" else "yellow"
+    name = (ov.university_name if ov else None) or result.domain
     header = Text.assemble(
-        (data.name or data.domain, "bold"),
-        ("   "),
-        (f"{data.domain}", "dim"),
-        ("   via "),
-        (data.extraction_method, method_color),
+        (name, "bold"), ("   "), (result.domain, "dim"), ("   via "), (result.method, method_color)
     )
     console.print(Panel(header, border_style=method_color, expand=False))
 
-    if data.overview:
-        console.print(Panel(data.overview, title="Overview", border_style="dim", expand=False))
-
-    _render_contact(console, data)
+    _render_overview(console, data)
     _render_tuition(console, data)
     _render_deadlines(console, data)
     _render_sources(console, data)
     console.print()
 
 
-def _render_contact(console: Console, data: UniversityData) -> None:
-    c = data.contact
-    if not any([c.phone, c.email, c.mailing_address, c.admissions_office_url]):
+def _render_overview(console: Console, data) -> None:
+    ov = data.overview
+    if ov is None:
         return
+    loc = ov.location
+    con = ov.contact
     t = Table.grid(padding=(0, 2))
     t.add_column(style="bold")
     t.add_column()
-    t.add_row("Phone", _or_dash(c.phone))
-    t.add_row("Email", _or_dash(c.email))
-    t.add_row("Address", _or_dash(c.mailing_address))
-    t.add_row("Admissions", _or_dash(c.admissions_office_url))
-    console.print(Panel(t, title="Contact", border_style="blue", expand=False))
+    if loc:
+        place = ", ".join(x for x in [loc.city, loc.state, loc.postal_code, loc.country] if x)
+        t.add_row("Location", _or_dash(place))
+    if con:
+        t.add_row("Phone", _or_dash(con.phone))
+        t.add_row("Email", _or_dash(con.email))
+    console.print(Panel(t, title="Overview", border_style="blue", expand=False))
 
 
-def _render_tuition(console: Console, data: UniversityData) -> None:
-    table = Table(title="Tuition / Cost", title_style="bold green", header_style="green")
-    for col in ("Student", "Residency", "Year", "Tuition", "Fees", "Room & Board", "Total"):
-        table.add_column(col, justify="right" if col in {"Tuition", "Fees", "Room & Board", "Total"} else "left")
-    if not data.tuition:
+def _render_tuition(console: Console, data) -> None:
+    if not data.tuition_breakdown:
         console.print(Panel("[dim]No tuition figures extracted[/dim]", border_style="green", expand=False))
         return
-    for row in data.tuition:
-        table.add_row(
-            _or_dash(row.student_type),
-            _or_dash(row.residency),
-            _or_dash(row.academic_year),
-            _money(row.tuition),
-            _money(row.fees),
-            _money(row.room_and_board),
-            _money(row.total_cost_of_attendance),
-        )
+    table = Table(title="Tuition / Cost", title_style="bold green", header_style="green")
+    table.add_column("Fee type")
+    table.add_column("Cost", justify="right")
+    for item in data.tuition_breakdown:
+        table.add_row(_or_dash(item.fee_type), _money(item))
     console.print(table)
 
 
-def _render_deadlines(console: Console, data: UniversityData) -> None:
+def _render_deadlines(console: Console, data) -> None:
     if not data.admission_deadlines:
         return
     table = Table(title="Admission Deadlines", title_style="bold cyan", header_style="cyan")
-    table.add_column("Name")
-    table.add_column("Applicant")
+    table.add_column("Type")
     table.add_column("Date")
+    table.add_column("Notes")
     for d in data.admission_deadlines:
-        when = d.deadline.isoformat() if d.deadline else (d.deadline_text or "—")
-        table.add_row(d.name, _or_dash(d.applicant_type), when)
+        dtype = d.deadline_type.value if d.deadline_type else "—"
+        table.add_row(dtype, _or_dash(d.deadline_date), _or_dash(d.notes))
     console.print(table)
 
 
-def _render_sources(console: Console, data: UniversityData) -> None:
-    table = Table(title=f"Sources ({len(data.sources)})", title_style="bold", header_style="dim")
-    table.add_column("Type")
-    table.add_column("D", justify="center")
-    table.add_column("Score", justify="right")
+def _render_sources(console: Console, data) -> None:
+    table = Table(title=f"Sources ({len(data.page_metadata)})", title_style="bold", header_style="dim")
+    table.add_column("Status", justify="center")
+    table.add_column("Title", overflow="fold")
     table.add_column("URL", overflow="fold")
-    for s in data.sources:
-        style = CATEGORY_STYLE.get(s.page_type, "white")
-        score = f"{s.relevance_score:.1f}" if s.relevance_score is not None else "—"
-        table.add_row(Text(s.page_type, style=style), str(s.depth), score, s.url)
+    for s in data.page_metadata:
+        table.add_row(_or_dash(s.status_code), _or_dash(s.page_title), _or_dash(s.url))
     console.print(table)

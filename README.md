@@ -19,6 +19,24 @@ Give it `bucknell.edu` and it finds the right Admissions and Tuition/Cost pages 
 (no hardcoded URLs), extracts the data, and emits a JSON document that is guaranteed valid
 against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
 
+## 🎥 Demo
+
+<!--
+  HOW TO ADD THE VIDEO (pick one):
+
+  A) MP4 with audio (recommended): on GitHub, edit this README (or open an Issue) and
+     DRAG your .mp4/.mov into the editor. GitHub uploads it and inserts a URL like
+     https://github.com/user-attachments/assets/xxxx — paste that URL on the line below.
+
+  B) GIF committed to the repo: drop docs/demo.gif in the repo and uncomment the line below.
+-->
+
+<!-- A) paste the GitHub attachment URL on its own line here -->
+
+<!-- B) ![UniCompanion demo](docs/demo.gif) -->
+
+> _Demo video coming soon — run `streamlit run app.py` to try it live._
+
 ## ✨ Highlights
 
 - **Discovery, not hardcoding** — pages are found by scoring link URLs + anchor text, so the
@@ -29,7 +47,8 @@ against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
   (headless Chromium) for JavaScript-heavy pages.
 - **Robust & polite** — honors `robots.txt`, throttles, retries 5xx, stays on-domain
   (incl. subdomains), and **skips authentication-gated pages** three different ways.
-- **Never fabricates** — every field is `Optional`; dates without a year stay `null`.
+- **Never fabricates** — every field is `Optional` and defaults to `null`; values that can't be
+  read with confidence are left empty rather than guessed.
 - **Full provenance** — every page used is recorded with URL, type, depth, HTTP status,
   SHA-1, word count, and relevance score.
 
@@ -68,7 +87,7 @@ CLI flags: `--out-dir`, `--json`, `--no-llm`, `--render`, `--max-depth` (2), `--
 | Stage | Module(s) | What happens |
 |------|-----------|--------------|
 | **Extract** | `fetch.py`, `discover.py`, `crawl.py` | Read the homepage + `sitemap.xml`; **score** every link by URL-slug/anchor keywords; **priority-BFS** the best ones (depth ≤ 2, page budget). |
-| **Transform** | `extractors.py`, `normalize.py` | Clean pages → text → **Gemini** (or heuristic fallback) → one normalized dict. Money → float, dates → ISO (only when a year exists). |
+| **Transform** | `extractors.py`, `normalize.py` | Clean pages → text → **Gemini** (or heuristic fallback) → one normalized dict. Cost → int, email guarded for `EmailStr`, deadlines mapped to the allowed enum. |
 | **Load** | `schema.py`, `pipeline.py` | Assemble into `UniversityData`, **validate with Pydantic**, attach `PageMetadata` for every source. |
 
 ### Key design decisions
@@ -134,11 +153,29 @@ UniDataExtract/
 - The heuristic fallback reliably gets overview/name/contact; tuition tables and deadlines are
   much stronger via the LLM. The fallback exists for resilience, not parity.
 
-## 📄 Output schema (designed for this task)
+## 📄 Output schema
 
-`UniversityData` → `name`, `domain`, `homepage_url`, `overview`, `contact{}`, `tuition[]`,
-`admission_deadlines[]`, `sources[]` (page metadata), `extraction_method`, `extracted_at`.
-See [`unidata/schema.py`](unidata/schema.py) for the full definition.
+The output conforms exactly to the provided Pydantic schema ([`unidata/schema.py`](unidata/schema.py)):
+
+```
+UniversityData
+├── overview
+│   ├── university_name
+│   ├── location: { city, state, country, postal_code }
+│   └── contact:  { phone, email (EmailStr) }
+├── tuition_breakdown[]:   { fee_type, cost (int), currency }
+├── admission_deadlines[]: { deadline_type, deadline_date, notes }
+└── page_metadata[]:       { url, page_title, scraped_at, status_code }
+```
+
+- `deadline_type` is an **enum** — only `Early Decision`, `Regular Decision`, or
+  `Transfer Admission`. Variants like "Early Decision II" are mapped to the nearest value
+  with the specifics preserved in `notes`; anything outside the three (e.g. "Early Action")
+  is dropped rather than mis-typed.
+- The pipeline emits **only** these fields. Run metadata (which extractor ran, relevance
+  scores) is shown in the CLI/UI but kept out of the JSON so it matches the schema exactly.
+
+A sample for each reference university lives in [`samples/`](samples/).
 
 ## License
 

@@ -1,19 +1,32 @@
-"""End-to-end orchestration: domain in, validated UniversityData out."""
+"""End-to-end orchestration: domain in, validated UniversityData out.
+
+`run` returns a `PipelineResult` so the CLI/UI can show run metadata (extractor
+used, domain, how many pages were crawled) WITHOUT polluting the output JSON —
+`result.data` is exactly the provided schema and nothing more.
+"""
 
 from __future__ import annotations
 
 import logging
 import os
 from collections.abc import Callable
-from urllib.parse import urlparse
+from dataclasses import dataclass
 
 from .config import CrawlSettings
 from .crawl import CrawledPage, crawl, select_sources
 from .extractors import GeminiExtractor, HeuristicExtractor
-from .fetch import registrable_domain, utcnow
 from .schema import PageMetadata, UniversityData
 
 log = logging.getLogger("unidata.pipeline")
+
+
+@dataclass
+class PipelineResult:
+    data: UniversityData  # exactly the provided schema
+    method: str  # gemini | heuristic
+    domain: str
+    homepage_url: str
+    pages_crawled: int
 
 
 def run(
@@ -21,7 +34,7 @@ def run(
     settings: CrawlSettings | None = None,
     use_llm: bool = True,
     on_page: Callable | None = None,
-) -> UniversityData:
+) -> PipelineResult:
     """Run extract -> transform -> load for one university domain."""
     settings = settings or CrawlSettings()
 
@@ -35,33 +48,25 @@ def run(
         len(pages),
     )
 
-    fallback_admissions_url = (
-        sources["admissions"][0].result.url if sources["admissions"] else None
-    )
-
     # --- Transform: Gemini with deterministic fallback ------------------
     extractor = _choose_extractor(settings, use_llm)
-    core = extractor.extract(sources, fallback_admissions_url)
+    core = extractor.extract(sources)
     method = extractor.method
     if core is None:  # LLM failed at runtime -> fall back
         fallback = HeuristicExtractor(settings)
-        core = fallback.extract(sources, fallback_admissions_url)
+        core = fallback.extract(sources)
         method = fallback.method
 
     # --- Load: assemble + validate --------------------------------------
-    # `sources` records only the pages actually handed to the extractor, in
-    # priority order, deduplicated — the provenance of the extracted values.
     used = sources["homepage"] + sources["admissions"] + sources["tuition"]
-    base_host = urlparse(homepage_url).hostname or domain
-    data = UniversityData(
-        domain=registrable_domain(base_host),
+    data = UniversityData(page_metadata=_page_metadata(used), **core)
+    return PipelineResult(
+        data=data,
+        method=method,
+        domain=domain,
         homepage_url=homepage_url,
-        sources=_page_metadata(used),
-        extraction_method=method,
-        extracted_at=utcnow(),
-        **core,
+        pages_crawled=len(pages),
     )
-    return data
 
 
 def _choose_extractor(settings, use_llm: bool):
@@ -86,14 +91,9 @@ def _page_metadata(pages: list[CrawledPage]) -> list[PageMetadata]:
         meta.append(
             PageMetadata(
                 url=p.result.url,
-                title=p.result.title,
-                page_type=p.category,
-                depth=p.depth,
-                http_status=p.result.status,
-                fetched_at=p.result.fetched_at,
-                content_sha1=p.result.content_sha1,
-                word_count=p.result.word_count,
-                relevance_score=round(p.score, 2) if p.category != "homepage" else None,
+                page_title=p.result.title,
+                scraped_at=p.result.fetched_at.isoformat(),
+                status_code=str(p.result.status),
             )
         )
     return meta

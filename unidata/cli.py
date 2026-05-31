@@ -19,8 +19,11 @@ from rich.spinner import Spinner
 from rich.text import Text
 
 from .config import CrawlSettings
-from .console import CATEGORY_STYLE, banner, render_result
+from .console import banner, render_result
 from .pipeline import run
+
+# Accent colors for the live crawl ticker, keyed by discovered page category.
+CATEGORY_STYLE = {"homepage": "white", "admissions": "cyan", "tuition": "green", "other": "dim"}
 
 
 def _slug(domain: str) -> str:
@@ -67,21 +70,21 @@ def main(argv: list[str] | None = None) -> int:
     exit_code = 0
     for domain in args.domains:
         try:
-            data = _run_one(console, domain, settings, use_llm=not args.no_llm, quiet=args.json)
+            result = _run_one(console, domain, settings, use_llm=not args.no_llm, quiet=args.json)
         except Exception as exc:  # keep going on the remaining domains
             console.print(f"[bold red]✗[/bold red] {domain}: {exc}")
             exit_code = 1
             continue
 
-        payload = data.model_dump_json(indent=2)
+        payload = result.data.model_dump_json(indent=2)  # exactly the provided schema
         if out_dir:
             path = out_dir / f"{_slug(domain)}.json"
             path.write_text(payload + "\n")
-            console.print(f"[green]✓[/green] {domain} → {path}  [dim]({data.extraction_method})[/dim]")
+            console.print(f"[green]✓[/green] {domain} → {path}  [dim]({result.method})[/dim]")
         elif args.json:
             print(payload)
         else:
-            render_result(console, data)
+            render_result(console, result)
 
     return exit_code
 
@@ -107,13 +110,13 @@ def _run_one(console: Console, domain: str, settings: CrawlSettings, use_llm: bo
             spinner.update(text=line)
             live.refresh()
 
-        data = run(domain, settings=settings, use_llm=use_llm, on_page=on_page)
+        result = run(domain, settings=settings, use_llm=use_llm, on_page=on_page)
 
     console.print(
         f"[dim]crawled[/dim] {state['count']} [dim]pages ·[/dim] "
-        f"{len(data.sources)} [dim]sources kept[/dim]"
+        f"{len(result.data.page_metadata)} [dim]sources kept[/dim]"
     )
-    return data
+    return result
 
 
 if __name__ == "__main__":
