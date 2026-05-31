@@ -21,21 +21,10 @@ against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
 
 ## 🎥 Demo
 
-<!--
-  HOW TO ADD THE VIDEO (pick one):
+![UniCompanion demo](docs/demo.gif)
 
-  A) MP4 with audio (recommended): on GitHub, edit this README (or open an Issue) and
-     DRAG your .mp4/.mov into the editor. GitHub uploads it and inserts a URL like
-     https://github.com/user-attachments/assets/xxxx — paste that URL on the line below.
-
-  B) GIF committed to the repo: drop docs/demo.gif in the repo and uncomment the line below.
--->
-
-<!-- A) paste the GitHub attachment URL on its own line here -->
-
-<!-- B) ![UniCompanion demo](docs/demo.gif) -->
-
-> _Demo video coming soon — run `streamlit run app.py` to try it live._
+> A higher-quality MP4 is at [`docs/demo.mp4`](docs/demo.mp4). Run it yourself with
+> `streamlit run app.py` (or `make ui`).
 
 ## ✨ Highlights
 

@@ -8,3 +8,6 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+
+# Keep the optimized demo.gif/.mp4, not the heavy source recording
+docs/*.mov
