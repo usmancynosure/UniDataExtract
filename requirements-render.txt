@@ -1,0 +1,3 @@
+# Optional: only needed for `--render` (JavaScript rendering via headless Chromium).
+# After installing, download the browser once:  playwright install chromium
+playwright>=1.40

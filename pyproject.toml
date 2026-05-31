@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "unidataextract"
+version = "0.1.0"
+description = "ETL pipeline that discovers and extracts university Admissions/Tuition data from a domain"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Usman" }]
+keywords = ["etl", "web-scraping", "llm", "pydantic", "universities"]
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "pydantic>=2.6",
+    "python-dotenv>=1.0",
+    "python-dateutil>=2.9",
+    "google-genai>=0.8",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+render = ["playwright>=1.40"]      # JavaScript rendering backend (--render)
+ui = ["streamlit>=1.30"]           # web interface (app.py)
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[project.scripts]
+unidata = "unidata.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["unidata"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
