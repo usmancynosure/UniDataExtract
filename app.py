@@ -264,6 +264,10 @@ with st.sidebar:
 # --------------------------------------------------------------------------
 domains = _parse_domains(domains_raw)
 
+# Run only when the button is clicked, and stash the results in session state.
+# Streamlit reruns the whole script on every widget change (e.g. the tuition
+# category filter); reading from session state keeps the results on screen
+# instead of recomputing — or worse, vanishing — on each interaction.
 if go and domains:
     settings = CrawlSettings(max_pages=max_pages, max_depth=max_depth, render=render)
     results = []
@@ -287,6 +291,23 @@ if go and domains:
         state = "complete" if not errors else "error"
         status.update(label=f"Done — {len(results)} ok · {len(errors)} failed", state=state)
 
+    st.session_state["results"] = results
+    st.session_state["errors"] = errors
+
+# --- render from session state (survives widget reruns) --------------------
+results = st.session_state.get("results")
+errors = st.session_state.get("errors", [])
+
+if results is None:
+    st.markdown(
+        '<div class="card"><h3>Get started</h3>'
+        '<p style="color:#475569;margin:.2rem 0 0">Enter one or more university domains in the '
+        'sidebar (one per line) and click <b>Extract</b>. The pipeline discovers the Admissions '
+        'and Tuition pages on its own, then returns clean, validated data — with a run summary '
+        'and a tab per university for batches.</p></div>',
+        unsafe_allow_html=True,
+    )
+else:
     for d, msg in errors:
         st.error(f"{d}: {msg}")
 
@@ -317,12 +338,5 @@ if go and domains:
     elif results:
         st.markdown(f"## {_label(results[0])}")
         render_one(results[0])
-else:
-    st.markdown(
-        '<div class="card"><h3>Get started</h3>'
-        '<p style="color:#475569;margin:.2rem 0 0">Enter one or more university domains in the '
-        'sidebar (one per line) and click <b>Extract</b>. The pipeline discovers the Admissions '
-        'and Tuition pages on its own, then returns clean, validated data — with a run summary '
-        'and a tab per university for batches.</p></div>',
-        unsafe_allow_html=True,
-    )
+    elif not errors:
+        st.info("No results.")
