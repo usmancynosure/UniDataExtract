@@ -21,9 +21,16 @@ against a Pydantic schema. Comes with a `rich` CLI **and** a Streamlit web UI.
 
 ## 🎥 Demo
 
-![UniCompanion demo](docs/demo.gif)
+**Web dashboard** — domain in, structured data out:
 
-> A higher-quality MP4 is at [`docs/demo.mp4`](docs/demo.mp4). Run it yourself with
+![UniCompanion dashboard demo](docs/demo.gif)
+
+**Generated report** — the shareable, print-to-PDF HTML report:
+
+![UniCompanion report demo](docs/pdfreport.gif)
+
+> Higher-quality MP4s: [`docs/demo.mp4`](docs/demo.mp4) ·
+> [`docs/pdfreport.mp4`](docs/pdfreport.mp4). Run it yourself with
 > `streamlit run app.py` (or `make ui`).
 
 ## ✨ Highlights
